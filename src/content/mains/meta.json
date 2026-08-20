@@ -1,0 +1,38 @@
+{
+  "accueil": {
+    "className": "w-full pt-16 bg-background lg:pt-28",
+    "source": "acceuil.html"
+  },
+  "catalogue": {
+    "className": "w-full pt-16 bg-background lg:pt-28",
+    "source": "catalogue.html"
+  },
+  "produit": {
+    "className": "w-full pt-16 bg-background lg:pt-28",
+    "source": "fiche-produit.html"
+  },
+  "configuration-verres": {
+    "className": "w-full pt-16 bg-background lg:pt-28",
+    "source": "configuration-verres.html"
+  },
+  "panier": {
+    "className": "w-full pt-16 bg-background lg:pt-28",
+    "source": "panier-configuration.html"
+  },
+  "paiement": {
+    "className": "w-full pt-16 bg-background lg:pt-28",
+    "source": "paiement-santé.html"
+  },
+  "confirmation": {
+    "className": "w-full pt-16 bg-background lg:pt-28",
+    "source": "confirmation-commande"
+  },
+  "magasins": {
+    "className": "w-full pt-16 bg-background lg:pt-28",
+    "source": "nos-magazin.html"
+  },
+  "mon-espace": {
+    "className": "w-full pt-16 bg-background lg:pt-28",
+    "source": "mon-espace.html"
+  }
+}

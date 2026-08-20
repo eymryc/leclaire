@@ -1,0 +1,115 @@
+<div class="flex flex-col w-full relative overflow-hidden">
+<!-- Immersive Background with Blur Elements for Depth -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-secondary-fixed opacity-30 blur-[120px]"></div>
+<div class="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary-fixed-dim opacity-20 blur-[150px]"></div>
+</div>
+<!-- Main Content Container with Glassmorphism 2.0 -->
+<div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-32 flex flex-col md:flex-row gap-16 items-center min-h-[85vh]">
+<!-- Left: Celebration & Typography (Asymmetrical alignment) -->
+<div class="w-full md:w-1/2 flex flex-col items-start pt-12 md:pt-0">
+<!-- Order Number Badge -->
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container/50 backdrop-blur-md mb-8 border border-white/40 shadow-sm transition-transform hover:scale-105 duration-300">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Commande #LO-2026-X</span>
+</div>
+<!-- Header -->
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6 leading-tight">
+                Commande <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Confirmée !</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mb-12">
+                Nos opticiens préparent votre équipement avec précision. Un e-mail de confirmation vient de vous être envoyé.
+            </p>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row gap-6 w-full max-w-md">
+<button class="relative overflow-hidden group flex-1 h-14 rounded-lg bg-primary text-on-primary font-label-caps text-label-caps flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,103,126,0.4)]">
+<span class="relative z-10 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">dashboard</span>
+                        Tableau de bord
+                    </span>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+</button>
+<button class="flex-1 h-14 rounded-lg bg-white/40 backdrop-blur-xl border border-white/60 text-primary font-label-caps text-label-caps flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white/60 hover:shadow-lg">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                    Partager
+                </button>
+</div>
+</div>
+<!-- Right: 3D Product Presentation & Timeline -->
+<div class="w-full md:w-1/2 relative flex justify-center items-center">
+<!-- Floating Product Card (Glass Layer) -->
+<div class="w-full max-w-md bg-white/70 backdrop-blur-[24px] border border-white/40 rounded-2xl shadow-xl p-glass-padding transform transition-transform duration-700 hover:-translate-y-4 hover:shadow-2xl group">
+<!-- Product Image Area -->
+<div class="relative w-full aspect-square mb-8 rounded-xl overflow-hidden bg-surface-container-low flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-br from-surface to-surface-container-high opacity-50"></div>
+<!-- 3D Render Placeholder -->
+<img alt="Lunettes commandées" class="w-full h-full object-cover relative z-10 transition-transform duration-1000 group-hover:scale-110" data-alt="High quality 3D render of a pair of minimalist, premium eyeglasses with clear lenses and a matte black titanium frame. The glasses are floating slightly above a soft, clinical white surface. Lighting is pristine, diffused, and high-contrast, casting a soft cyan refraction through the lenses, matching the Lumina Optics brand aesthetic. Studio lighting, macro photography feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCat2p_hjqjryo1mRdY0vmuiXM0xpVKmbSqs_pgVaYLVHezTWINcVxuhlSjw7jNlNSwEimJJVWBjoRhBQ1H5CzygdRfg7Ln7aE2UceJWobZzxVkxnFz8_elGFzLpF4K4ue_h-_yAd2X4ZyO9gCx08s-U2mY1futwc4tEQB4TvCAoYsocNE9cfqIycLSUpKXEcdx_1qVzMaiEAauMV0bO8CygvVLn6aCvzdU55pbFN6Wupxc2eKPQ058BA"/>
+<!-- 3D indicator -->
+<div class="absolute bottom-4 right-4 z-20 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-primary text-[16px]">3d_rotation</span>
+</div>
+</div>
+<!-- Next Steps Timeline -->
+<div class="relative">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6 border-b border-surface-variant/50 pb-2">Progression de la commande</h3>
+<div class="relative flex flex-col gap-6">
+<!-- Progress Line -->
+<div class="absolute left-[11px] top-4 bottom-4 w-[2px] bg-surface-variant/50 z-0"></div>
+<div class="absolute left-[11px] top-4 h-[25%] w-[2px] bg-secondary z-0 transition-all duration-1000 ease-in-out" id="progress-line"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex gap-4 items-start group/step">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(0,103,126,0.3)] transition-transform group-hover/step:scale-110">
+<span class="material-symbols-outlined text-on-secondary text-[12px] font-bold">check</span>
+</div>
+<div class="pt-0.5">
+<h4 class="font-label-caps text-label-caps text-primary">Contrôle Optique</h4>
+<p class="text-[13px] font-body-md text-on-surface-variant mt-1">Validation de l'ordonnance en cours.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex gap-4 items-start group/step">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant transition-colors group-hover/step:border-secondary">
+<span class="material-symbols-outlined text-outline text-[12px]">build</span>
+</div>
+<div class="pt-0.5 opacity-60">
+<h4 class="font-label-caps text-label-caps text-on-surface">Fabrication Labo</h4>
+<p class="text-[13px] font-body-md text-on-surface-variant mt-1">Taillage des verres sur-mesure.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex gap-4 items-start group/step">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant transition-colors group-hover/step:border-secondary">
+<span class="material-symbols-outlined text-outline text-[12px]">verified</span>
+</div>
+<div class="pt-0.5 opacity-60">
+<h4 class="font-label-caps text-label-caps text-on-surface">Contrôle Qualité</h4>
+<p class="text-[13px] font-body-md text-on-surface-variant mt-1">Inspection clinique finale.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex gap-4 items-start group/step">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant transition-colors group-hover/step:border-secondary">
+<span class="material-symbols-outlined text-outline text-[12px]">local_shipping</span>
+</div>
+<div class="pt-0.5 opacity-60">
+<h4 class="font-label-caps text-label-caps text-on-surface">Expédition Premium</h4>
+<p class="text-[13px] font-body-md text-on-surface-variant mt-1">Remise au transporteur sécurisé.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Elements behind card -->
+<div class="absolute -right-8 top-1/4 w-32 h-32 rounded-full border border-primary-fixed-dim/40 -z-10 mix-blend-multiply"></div>
+<div class="absolute -left-12 bottom-1/4 font-display-lg text-display-lg text-outline-variant/10 -z-10 transform -rotate-90 select-none whitespace-nowrap">LUMINA OPTICS</div>
+</div>
+</div>
+</div>
+<style>
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+</style>

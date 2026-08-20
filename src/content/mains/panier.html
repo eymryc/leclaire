@@ -1,0 +1,160 @@
+<div class="flex flex-col w-full relative overflow-hidden font-body-md text-on-surface">
+<!-- Decorative Ambient Background Elements -->
+<div class="fixed top-0 right-0 w-[80vw] h-[80vh] bg-gradient-to-bl from-primary-fixed-dim/20 via-transparent to-transparent -z-10 rounded-full blur-[120px] mix-blend-multiply opacity-60"></div>
+<div class="fixed bottom-0 left-0 w-[60vw] h-[60vh] bg-gradient-to-tr from-secondary-fixed/15 via-transparent to-transparent -z-10 rounded-full blur-[100px] mix-blend-multiply opacity-50"></div>
+<div class="max-w-container-max mx-auto w-full px-margin-mobile lg:px-margin-desktop py-12 lg:py-24">
+<!-- Header -->
+<div class="mb-16">
+<h1 class="font-display-lg-mobile text-display-lg-mobile lg:font-display-lg lg:text-display-lg text-primary tracking-tight mb-4">Votre Sélection</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Vérifiez les détails de votre monture et de vos verres avant de procéder au paiement sécurisé.</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-12 lg:gap-gutter items-start">
+<!-- Left Column: Cart Items -->
+<div class="w-full lg:w-2/3 flex flex-col gap-8">
+<!-- Main Item Card (Glassmorphism) -->
+<div class="bg-surface-container-lowest/70 backdrop-blur-[24px] rounded-xl p-6 lg:p-glass-padding shadow-sm ring-1 ring-white/40 flex flex-col md:flex-row gap-8 transition-transform duration-300 hover:-translate-y-1 hover:shadow-md group">
+<!-- Product Image -->
+<div class="w-full md:w-1/3 aspect-[4/3] bg-surface-container rounded-lg overflow-hidden relative flex items-center justify-center">
+<img class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="High-resolution, ultra-clean studio shot of elegant 'Aethelgard 02' eyeglasses with translucent cyan-tinted frames on a pure optical white background. Soft, diffused lighting highlighting the premium materials and glass reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAai2n3DbfFl3tOx3s63lVO9-49oiurPDiybryWXkHgc9_02-g4i_glSoWy6Bl8Pvh9Tk44fbjWRB5U-dhKt4bq__IvYVrhTcwhgGoAyz2pkeTkLhOvZTT-1jxV7TEA9Q365hd1co2UjOwXQsMG37DJ46uub5h050NbW_TlrZ9BwbQEaoGxXkwvZeMUjfL_eGV_jXdNjiA6HAFqJrxHDqS8aO_xaK51TW0KamtempNStP5EekxLSKkdRA"/>
+<!-- 3D Indicator -->
+<div class="absolute bottom-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm cursor-pointer shadow-sm hover:shadow-[0_0_15px_rgba(60,215,255,0.4)] transition-all">
+<span class="w-2 h-2 bg-secondary-fixed-dim rounded-full animate-pulse"></span>
+</div>
+</div>
+<!-- Product Details -->
+<div class="w-full md:w-2/3 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-1">Monture Optique</span>
+<h2 class="font-headline-md text-headline-md text-primary">Aethelgard 02</h2>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary">285€</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Écaille Cendrée • Taille M</p>
+<!-- Lens Configuration Details -->
+<div class="bg-surface/50 rounded-lg p-4 space-y-3 mb-6">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase border-b border-surface-variant pb-2 mb-3">Configuration des verres</h3>
+<div class="flex justify-between items-center text-sm">
+<span class="font-body-md text-on-surface">Verres Progressifs (Premium)</span>
+<span class="font-body-md font-semibold text-primary">+150€</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="font-body-md text-on-surface">Amincissement Ultra-Thin (1.67)</span>
+<span class="font-body-md font-semibold text-primary">+45€</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="font-body-md text-on-surface">Traitement Anti-Reflet Avancé</span>
+<span class="font-body-md font-semibold text-primary">Inclus</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center bg-surface-container-low rounded-full px-4 py-1 gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+<span class="font-body-md text-primary font-semibold">1</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors flex items-center gap-1 text-sm focus:outline-none group/delete">
+<span class="material-symbols-outlined text-[18px] group-hover/delete:animate-bounce">delete</span>
+<span>Retirer</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Upsell Section: Complétez votre style -->
+<div class="mt-8">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6 flex items-center gap-3">
+                        Complétez votre style
+                        <span class="h-px bg-surface-variant flex-grow ml-4"></span>
+</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Upsell Item 1 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex gap-4 items-center group hover:bg-surface-container transition-colors cursor-pointer">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Minimalist elegant leather glasses case in deep navy blue, resting on a white surface, studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJCOuw4NdnHGTpHvn8QUdb0zZX_qmnJN2cb9MPfxrN-QCOFuKRh_w-v--akNAm4UQ8CCTDHQJcMcLFqtQhbMR_1a3Pwl1b0iSAbuaC87ymnlProu3tW8ViTLbut74MD9ntSVZOJkDrNT1w-IlnD7F5dH99WlYRJa3MTgN4mfyX6aJeb-PoIBAZRxuXX5TwbxMf0CsMTpGypmCl4_wQmJZjsSHZZDJyxk0sfbc1Q6AAeQJXHk6mgIvFAA"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-body-md text-body-md font-semibold text-primary mb-1">Étui Cuir Premium</h4>
+<p class="text-sm text-on-surface-variant mb-2">Bleu Marine</p>
+<div class="flex justify-between items-center">
+<span class="font-semibold text-primary">45€</span>
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors focus:outline-none shadow-sm"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+</div>
+</div>
+<!-- Upsell Item 2 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex gap-4 items-center group hover:bg-surface-container transition-colors cursor-pointer">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="High-end optical cleaning kit featuring a sleek metallic spray bottle and a microfiber cloth neatly folded, clinical clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz0rSNd-4QJXroOTMeYCURHVtFtbP9p7BjRiq17brV9NumJMEF8TnMjDNJEsdkPn1qjTGFG88YUcLZ0Aerz6H6HtxlJ2zOMGo3gZu178c7DJ1_8cUm6_YR36H0mDp5yFNOIq2qYubSlv1c0tCTlS5-CAmYxcLWRJ44ObpIOSrNpTKCeV3ZENFi4DhwzuYLtcWFiglvlYXKau4ffwk0o8RVMLqb-PBmmPVM3gcmud8ENOCTuzmxu_y5jg"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-body-md text-body-md font-semibold text-primary mb-1">Kit Entretien Expert</h4>
+<p class="text-sm text-on-surface-variant mb-2">Spray &amp; Microfibre</p>
+<div class="flex justify-between items-center">
+<span class="font-semibold text-primary">20€</span>
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors focus:outline-none shadow-sm"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<div class="w-full lg:w-1/3 sticky top-28">
+<div class="bg-surface-container-lowest/80 backdrop-blur-[32px] rounded-2xl p-8 shadow-lg ring-1 ring-white/50 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6">Résumé de la commande</h3>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Sous-total (Monture)</span>
+<span class="font-body-md font-semibold text-primary">285,00€</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Forfait Verres</span>
+<span class="font-body-md font-semibold text-primary">195,00€</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Expédition Sécurisée</span>
+<span class="font-body-md font-semibold text-secondary">Offerte</span>
+</div>
+</div>
+<!-- Divider with Optical styling -->
+<div class="w-full h-px bg-gradient-to-r from-transparent via-surface-variant to-transparent mb-6"></div>
+<div class="flex justify-between items-end mb-8">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Total TTC</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary">480,00€</span>
+</div>
+<!-- Primary CTA -->
+<button class="w-full bg-primary text-on-primary py-4 rounded-lg font-label-caps text-label-caps uppercase tracking-wider hover:bg-primary-container transition-all hover:shadow-[0_0_20px_rgba(0,103,126,0.3)] relative overflow-hidden group focus:outline-none mb-6">
+<span class="relative z-10">Procéder au paiement</span>
+<!-- Hover Glow Effect -->
+<div class="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+</button>
+<!-- Trust Elements -->
+<div class="flex flex-col gap-4">
+<div class="bg-tertiary-fixed/30 rounded-lg p-3 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+<div>
+<p class="text-sm font-semibold text-primary">Éligible Tiers-Payant</p>
+<p class="text-[12px] text-on-surface-variant mt-1">Remboursement direct mutuelle &amp; sécurité sociale à l'étape suivante.</p>
+</div>
+</div>
+<div class="flex items-center justify-center gap-4 text-on-surface-variant mt-2">
+<span class="material-symbols-outlined text-[24px]" title="Paiement Sécurisé">lock</span>
+<span class="material-symbols-outlined text-[24px]" title="Visa">credit_card</span>
+<span class="material-symbols-outlined text-[24px]" title="Apple Pay">contactless</span>
+</div>
+<p class="text-center text-[10px] text-outline mt-1">Paiement 100% sécurisé via chiffrement AES-256</p>
+</div>
+</div>
+<!-- Clinical Assurance snippet -->
+<div class="mt-6 text-center px-4">
+<p class="font-body-md text-sm text-on-surface-variant italic">"La précision optique garantie 30 jours, ou nous ajustons vos verres sans frais."</p>
+</div>
+</div>
+</div>
+</div>
+</div>

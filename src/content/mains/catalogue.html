@@ -1,0 +1,366 @@
+<div class="flex flex-col w-full">
+<!-- En-tête collection -->
+<div class="w-full border-b border-surface-variant/40 bg-surface-container-lowest/60">
+<div class="mx-auto max-w-container-max px-margin-desktop py-8 md:py-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+<div class="flex flex-col gap-3 max-w-2xl">
+<nav class="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant" aria-label="Fil d'Ariane">
+<a class="hover:text-secondary transition-colors" href="/">Accueil</a>
+<span class="material-symbols-outlined text-[14px]" aria-hidden>chevron_right</span>
+<a class="hover:text-secondary transition-colors" href="/catalogue">Collection</a>
+<span class="material-symbols-outlined text-[14px]" aria-hidden>chevron_right</span>
+<span class="text-primary">Lunettes de vue</span>
+</nav>
+<h1 class="font-display-lg text-[2.25rem] md:text-[3rem] leading-tight tracking-tight text-primary text-balance">Lunettes de vue</h1>
+<p class="text-[16px] md:text-[17px] leading-relaxed text-on-surface-variant text-pretty">
+Montures pensées pour le confort quotidien et un style durable. Filtrez par morphologie, matière ou couleur — puis essayez en ligne avant de choisir vos verres.
+</p>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<label class="flex items-center gap-2 rounded-full border border-surface-variant bg-white px-4 py-2.5 text-[12px] font-semibold uppercase tracking-[0.06em] text-on-surface shadow-sm">
+<span class="text-on-surface-variant">Trier</span>
+<select class="bg-transparent text-primary outline-none cursor-pointer" aria-label="Trier les montures">
+<option>Pertinence</option>
+<option>Prix croissant</option>
+<option>Prix décroissant</option>
+<option>Nouveautés</option>
+</select>
+</label>
+<div class="flex items-center gap-1 rounded-full border border-surface-variant bg-white p-1 shadow-sm" role="group" aria-label="Mode d'affichage">
+<button type="button" class="rounded-full bg-primary px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.06em] text-white" aria-pressed="true">Grille</button>
+<button type="button" class="rounded-full px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.06em] text-on-surface-variant hover:text-primary" aria-pressed="false">Liste</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Contenu -->
+<div class="mx-auto max-w-container-max px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-8 py-8 md:py-10 pb-16">
+<!-- Filtres -->
+<aside class="lg:col-span-3 lg:sticky lg:top-[72px] lg:self-start space-y-6 rounded-2xl border border-surface-variant/50 bg-white p-5 md:p-6 shadow-sm z-20">
+<div class="flex items-center justify-between">
+<h2 class="text-[18px] font-semibold text-primary">Filtres</h2>
+<button type="button" class="text-[11px] font-semibold uppercase tracking-[0.08em] text-secondary hover:text-primary">Réinitialiser</button>
+</div>
+
+<div class="space-y-3">
+<p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Catégorie</p>
+<div class="flex flex-wrap gap-2">
+<a href="/catalogue" class="rounded-full bg-secondary px-3 py-1.5 text-[12px] font-semibold text-white">Vue</a>
+<button type="button" class="rounded-full bg-surface-container-low px-3 py-1.5 text-[12px] font-medium text-on-surface hover:bg-surface-container">Solaire</button>
+<button type="button" class="rounded-full bg-surface-container-low px-3 py-1.5 text-[12px] font-medium text-on-surface hover:bg-surface-container">Progressif</button>
+</div>
+</div>
+
+<div class="h-px bg-surface-variant/60"></div>
+
+<div class="space-y-3">
+<p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Forme du visage</p>
+<div class="grid grid-cols-2 gap-2">
+<button type="button" aria-label="Visage rond" class="flex flex-col items-center gap-1.5 rounded-xl border border-transparent bg-surface-container-low p-3 hover:border-secondary/30 transition-colors">
+<svg class="w-7 h-7 text-on-surface-variant" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle></svg>
+<span class="text-[10px] font-semibold uppercase tracking-wide text-on-surface-variant">Rond</span>
+</button>
+<button type="button" aria-label="Visage ovale" aria-pressed="true" class="flex flex-col items-center gap-1.5 rounded-xl border border-secondary/40 bg-secondary/5 p-3 relative">
+<svg class="w-7 h-7 text-secondary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="6" ry="9"></ellipse></svg>
+<span class="text-[10px] font-bold uppercase tracking-wide text-secondary">Ovale</span>
+</button>
+<button type="button" aria-label="Visage carré" class="flex flex-col items-center gap-1.5 rounded-xl border border-transparent bg-surface-container-low p-3 hover:border-secondary/30 transition-colors">
+<svg class="w-7 h-7 text-on-surface-variant" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect height="12" rx="2" width="12" x="6" y="6"></rect></svg>
+<span class="text-[10px] font-semibold uppercase tracking-wide text-on-surface-variant">Carré</span>
+</button>
+<button type="button" aria-label="Visage triangulaire" class="flex flex-col items-center gap-1.5 rounded-xl border border-transparent bg-surface-container-low p-3 hover:border-secondary/30 transition-colors">
+<svg class="w-7 h-7 text-on-surface-variant" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polygon points="12 4 20 20 4 20"></polygon></svg>
+<span class="text-[10px] font-semibold uppercase tracking-wide text-on-surface-variant">Triangle</span>
+</button>
+</div>
+</div>
+
+<div class="h-px bg-surface-variant/60"></div>
+
+<div class="space-y-3">
+<p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Couleur</p>
+<div class="flex flex-wrap gap-2.5">
+<button type="button" aria-label="Noir" class="h-8 w-8 rounded-full bg-[#1A1A1A] ring-2 ring-offset-2 ring-secondary shadow-sm"></button>
+<button type="button" aria-label="Écaille" class="h-8 w-8 rounded-full bg-[#8B4513] shadow-sm hover:scale-105 transition-transform"></button>
+<button type="button" aria-label="Or" class="h-8 w-8 rounded-full bg-[#D4AF37] shadow-sm hover:scale-105 transition-transform"></button>
+<button type="button" aria-label="Argent" class="h-8 w-8 rounded-full bg-[#C0C0C0] shadow-sm hover:scale-105 transition-transform"></button>
+<button type="button" aria-label="Transparent" class="h-8 w-8 rounded-full bg-[#E5E4E2] border border-outline-variant shadow-sm hover:scale-105 transition-transform"></button>
+<button type="button" aria-label="Bleu" class="h-8 w-8 rounded-full bg-[#1e3a5f] shadow-sm hover:scale-105 transition-transform"></button>
+</div>
+</div>
+
+<div class="h-px bg-surface-variant/60"></div>
+
+<div class="space-y-3">
+<p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Matière</p>
+<div class="space-y-2.5">
+<label class="flex items-center gap-3 cursor-pointer group">
+<span class="flex h-5 w-5 items-center justify-center rounded bg-secondary text-white shadow-sm"><span class="material-symbols-outlined text-[14px]">check</span></span>
+<span class="text-[14px] text-on-surface group-hover:text-secondary">Acétate premium</span>
+<span class="ml-auto text-[12px] text-on-surface-variant">42</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<span class="h-5 w-5 rounded border border-outline-variant bg-white group-hover:border-secondary"></span>
+<span class="text-[14px] text-on-surface group-hover:text-secondary">Titane ultra-léger</span>
+<span class="ml-auto text-[12px] text-on-surface-variant">18</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<span class="h-5 w-5 rounded border border-outline-variant bg-white group-hover:border-secondary"></span>
+<span class="text-[14px] text-on-surface group-hover:text-secondary">Acier inoxydable</span>
+<span class="ml-auto text-[12px] text-on-surface-variant">24</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<span class="h-5 w-5 rounded border border-outline-variant bg-white group-hover:border-secondary"></span>
+<span class="text-[14px] text-on-surface group-hover:text-secondary">Bio-acétate</span>
+<span class="ml-auto text-[12px] text-on-surface-variant">12</span>
+</label>
+</div>
+</div>
+
+<div class="h-px bg-surface-variant/60"></div>
+
+<div class="space-y-3">
+<p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Budget</p>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer text-[14px] text-on-surface"><span class="h-5 w-5 rounded border border-outline-variant bg-white"></span> Moins de 150 €</label>
+<label class="flex items-center gap-3 cursor-pointer text-[14px] text-on-surface"><span class="h-5 w-5 rounded border border-outline-variant bg-white"></span> 150 – 250 €</label>
+<label class="flex items-center gap-3 cursor-pointer text-[14px] text-on-surface"><span class="h-5 w-5 rounded border border-outline-variant bg-white"></span> 250 – 400 €</label>
+<label class="flex items-center gap-3 cursor-pointer text-[14px] text-on-surface"><span class="h-5 w-5 rounded border border-outline-variant bg-white"></span> Plus de 400 €</label>
+</div>
+</div>
+
+<div class="rounded-xl bg-primary/5 border border-primary/10 p-4">
+<p class="text-[13px] font-semibold text-primary mb-1">Besoin d’aide ?</p>
+<p class="text-[13px] leading-relaxed text-on-surface-variant mb-3">Un opticien Lumina peut vous guider sur la forme et la correction.</p>
+<a href="/magasins" class="inline-flex text-[12px] font-semibold uppercase tracking-[0.06em] text-secondary hover:text-primary items-center gap-1">
+Prendre rendez-vous <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</aside>
+
+<!-- Grille produits -->
+<div class="lg:col-span-9 flex flex-col gap-6">
+<div class="flex flex-wrap items-center gap-3">
+<p class="text-[13px] text-on-surface-variant"><span class="font-semibold text-primary">6</span> montures</p>
+<span class="text-outline-variant">·</span>
+<span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Filtres actifs</span>
+<span class="inline-flex items-center gap-1.5 rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-[12px] font-semibold text-primary">
+Forme : ovale
+<button type="button" class="material-symbols-outlined text-[14px] hover:text-error" aria-label="Retirer filtre forme">close</button>
+</span>
+<span class="inline-flex items-center gap-1.5 rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-[12px] font-semibold text-primary">
+Matière : acétate
+<button type="button" class="material-symbols-outlined text-[14px] hover:text-error" aria-label="Retirer filtre matière">close</button>
+</span>
+<button type="button" class="text-[12px] font-semibold text-secondary hover:underline underline-offset-4">Tout effacer</button>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-6">
+<!-- Produit 1 -->
+<article class="group flex flex-col overflow-hidden rounded-2xl border border-surface-variant/40 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+<div class="relative aspect-[4/3] bg-surface-container-low overflow-hidden">
+<span class="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-secondary shadow-sm">
+<span class="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse"></span> Nouveauté
+</span>
+<div class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0">
+<a href="/produit" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-primary hover:text-secondary" title="Essayage virtuel" aria-label="Essayage virtuel"><span class="material-symbols-outlined text-[20px]">view_in_ar</span></a>
+<button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-on-surface-variant hover:text-error" title="Favoris" aria-label="Ajouter aux favoris"><span class="material-symbols-outlined text-[20px]">favorite</span></button>
+</div>
+<a href="/produit" class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image:url('/images/catalogue/cat-aura.jpg')" aria-label="Aura Eclipse"></a>
+</div>
+<div class="flex flex-1 flex-col gap-3 p-5">
+<div class="flex items-start justify-between gap-3">
+<div>
+<a href="/produit" class="block text-[18px] font-semibold text-primary hover:text-secondary transition-colors">Aura Eclipse</a>
+<p class="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Acétate écaille</p>
+</div>
+<p class="text-[17px] font-bold text-primary whitespace-nowrap">285 €</p>
+</div>
+<div class="mt-auto flex items-center justify-between gap-3 pt-1">
+<div class="flex items-center gap-1.5">
+<span class="h-3.5 w-3.5 rounded-full bg-[#8B4513] ring-1 ring-offset-1 ring-outline" title="Écaille"></span>
+<span class="h-3.5 w-3.5 rounded-full bg-[#1A1A1A]" title="Noir"></span>
+<span class="h-3.5 w-3.5 rounded-full bg-gradient-to-br from-white to-gray-200 border border-outline-variant" title="Cristal"></span>
+<span class="text-[10px] uppercase tracking-wide text-on-surface-variant ml-1">+2</span>
+</div>
+<a href="/produit" class="text-[12px] font-semibold text-secondary hover:text-primary">Voir →</a>
+</div>
+</div>
+</article>
+
+<!-- Produit 2 -->
+<article class="group flex flex-col overflow-hidden rounded-2xl border border-surface-variant/40 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+<div class="relative aspect-[4/3] bg-surface-container-low overflow-hidden">
+<div class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0">
+<a href="/produit" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-primary hover:text-secondary" title="Essayage virtuel" aria-label="Essayage virtuel"><span class="material-symbols-outlined text-[20px]">view_in_ar</span></a>
+<button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-on-surface-variant hover:text-error" aria-label="Favoris"><span class="material-symbols-outlined text-[20px]">favorite</span></button>
+</div>
+<a href="/produit" class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image:url('/images/catalogue/cat-titanium.jpg')" aria-label="Titanium X1"></a>
+</div>
+<div class="flex flex-1 flex-col gap-3 p-5">
+<div class="flex items-start justify-between gap-3">
+<div>
+<a href="/produit" class="block text-[18px] font-semibold text-primary hover:text-secondary transition-colors">Titanium X1</a>
+<p class="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Titane brossé</p>
+</div>
+<p class="text-[17px] font-bold text-primary whitespace-nowrap">340 €</p>
+</div>
+<div class="mt-auto flex items-center justify-between gap-3 pt-1">
+<div class="flex items-center gap-1.5">
+<span class="h-3.5 w-3.5 rounded-full bg-[#A9A9A9] ring-1 ring-offset-1 ring-outline" title="Argent"></span>
+<span class="h-3.5 w-3.5 rounded-full bg-[#36454F]" title="Gunmetal"></span>
+</div>
+<a href="/produit" class="text-[12px] font-semibold text-secondary hover:text-primary">Voir →</a>
+</div>
+</div>
+</article>
+
+<!-- Produit 3 -->
+<article class="group flex flex-col overflow-hidden rounded-2xl border border-surface-variant/40 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+<div class="relative aspect-[4/3] bg-surface-container-low overflow-hidden">
+<span class="absolute top-3 left-3 z-10 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">Best-seller</span>
+<div class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0">
+<a href="/produit" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-primary hover:text-secondary" aria-label="Essayage virtuel"><span class="material-symbols-outlined text-[20px]">view_in_ar</span></a>
+<button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-on-surface-variant hover:text-error" aria-label="Favoris"><span class="material-symbols-outlined text-[20px]">favorite</span></button>
+</div>
+<a href="/produit" class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image:url('/images/catalogue/cat-noir.jpg')" aria-label="Nordic Line 42"></a>
+</div>
+<div class="flex flex-1 flex-col gap-3 p-5">
+<div class="flex items-start justify-between gap-3">
+<div>
+<a href="/produit" class="block text-[18px] font-semibold text-primary hover:text-secondary transition-colors">Nordic Line 42</a>
+<p class="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Acétate noir mat</p>
+</div>
+<p class="text-[17px] font-bold text-primary whitespace-nowrap">189 €</p>
+</div>
+<div class="mt-auto flex items-center justify-between gap-3 pt-1">
+<div class="flex items-center gap-1.5">
+<span class="h-3.5 w-3.5 rounded-full bg-[#1A1A1A] ring-1 ring-offset-1 ring-outline"></span>
+<span class="h-3.5 w-3.5 rounded-full bg-[#1e3a5f]"></span>
+</div>
+<a href="/produit" class="text-[12px] font-semibold text-secondary hover:text-primary">Voir →</a>
+</div>
+</div>
+</article>
+
+<!-- Produit 4 -->
+<article class="group flex flex-col overflow-hidden rounded-2xl border border-surface-variant/40 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+<div class="relative aspect-[4/3] bg-surface-container-low overflow-hidden">
+<div class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0">
+<a href="/produit" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-primary hover:text-secondary" aria-label="Essayage virtuel"><span class="material-symbols-outlined text-[20px]">view_in_ar</span></a>
+<button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-on-surface-variant hover:text-error" aria-label="Favoris"><span class="material-symbols-outlined text-[20px]">favorite</span></button>
+</div>
+<a href="/produit" class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image:url('/images/catalogue/cat-cristal.jpg')" aria-label="Atelier Curve"></a>
+</div>
+<div class="flex flex-1 flex-col gap-3 p-5">
+<div class="flex items-start justify-between gap-3">
+<div>
+<a href="/produit" class="block text-[18px] font-semibold text-primary hover:text-secondary transition-colors">Atelier Curve</a>
+<p class="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Acétate cristal</p>
+</div>
+<p class="text-[17px] font-bold text-primary whitespace-nowrap">229 €</p>
+</div>
+<div class="mt-auto flex items-center justify-between gap-3 pt-1">
+<div class="flex items-center gap-1.5">
+<span class="h-3.5 w-3.5 rounded-full bg-gradient-to-br from-white to-gray-200 border border-outline-variant ring-1 ring-offset-1 ring-outline"></span>
+<span class="h-3.5 w-3.5 rounded-full bg-[#8B4513]"></span>
+</div>
+<a href="/produit" class="text-[12px] font-semibold text-secondary hover:text-primary">Voir →</a>
+</div>
+</div>
+</article>
+
+<!-- Produit 5 -->
+<article class="group flex flex-col overflow-hidden rounded-2xl border border-surface-variant/40 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+<div class="relative aspect-[4/3] bg-surface-container-low overflow-hidden">
+<div class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0">
+<a href="/produit" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-primary hover:text-secondary" aria-label="Essayage virtuel"><span class="material-symbols-outlined text-[20px]">view_in_ar</span></a>
+<button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-on-surface-variant hover:text-error" aria-label="Favoris"><span class="material-symbols-outlined text-[20px]">favorite</span></button>
+</div>
+<a href="/produit" class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image:url('/images/catalogue/cat-or.jpg')" aria-label="Horizon Or"></a>
+</div>
+<div class="flex flex-1 flex-col gap-3 p-5">
+<div class="flex items-start justify-between gap-3">
+<div>
+<a href="/produit" class="block text-[18px] font-semibold text-primary hover:text-secondary transition-colors">Horizon Or</a>
+<p class="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Métal or pâle</p>
+</div>
+<p class="text-[17px] font-bold text-primary whitespace-nowrap">259 €</p>
+</div>
+<div class="mt-auto flex items-center justify-between gap-3 pt-1">
+<div class="flex items-center gap-1.5">
+<span class="h-3.5 w-3.5 rounded-full bg-[#D4AF37] ring-1 ring-offset-1 ring-outline"></span>
+<span class="h-3.5 w-3.5 rounded-full bg-[#C0C0C0]"></span>
+</div>
+<a href="/produit" class="text-[12px] font-semibold text-secondary hover:text-primary">Voir →</a>
+</div>
+</div>
+</article>
+
+<!-- Produit 6 -->
+<article class="group flex flex-col overflow-hidden rounded-2xl border border-surface-variant/40 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+<div class="relative aspect-[4/3] bg-surface-container-low overflow-hidden">
+<span class="absolute top-3 left-3 z-10 rounded-full bg-secondary/10 border border-secondary/30 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-secondary">Édition limitée</span>
+<div class="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0">
+<a href="/produit" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-primary hover:text-secondary" aria-label="Essayage virtuel"><span class="material-symbols-outlined text-[20px]">view_in_ar</span></a>
+<button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm text-on-surface-variant hover:text-error" aria-label="Favoris"><span class="material-symbols-outlined text-[20px]">favorite</span></button>
+</div>
+<a href="/produit" class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image:url('/images/catalogue/cat-bleu.jpg')" aria-label="Glacier Round"></a>
+</div>
+<div class="flex flex-1 flex-col gap-3 p-5">
+<div class="flex items-start justify-between gap-3">
+<div>
+<a href="/produit" class="block text-[18px] font-semibold text-primary hover:text-secondary transition-colors">Glacier Round</a>
+<p class="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">Acétate bleu glacier</p>
+</div>
+<p class="text-[17px] font-bold text-primary whitespace-nowrap">215 €</p>
+</div>
+<div class="mt-auto flex items-center justify-between gap-3 pt-1">
+<div class="flex items-center gap-1.5">
+<span class="h-3.5 w-3.5 rounded-full bg-[#1e3a5f] ring-1 ring-offset-1 ring-outline"></span>
+<span class="h-3.5 w-3.5 rounded-full bg-[#1A1A1A]"></span>
+</div>
+<a href="/produit" class="text-[12px] font-semibold text-secondary hover:text-primary">Voir →</a>
+</div>
+</div>
+</article>
+</div>
+
+<!-- Bannière réassurance -->
+<div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl border border-surface-variant/40 bg-white p-5 md:p-6">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[28px]">view_in_ar</span>
+<div>
+<p class="text-[14px] font-semibold text-primary">Essayage virtuel</p>
+<p class="text-[13px] text-on-surface-variant mt-0.5">Testez chaque monture sur votre visage en quelques secondes.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[28px]">verified_user</span>
+<div>
+<p class="text-[14px] font-semibold text-primary">Garantie 2 ans</p>
+<p class="text-[13px] text-on-surface-variant mt-0.5">SAV opticien et échanges facilités en magasin.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[28px]">local_shipping</span>
+<div>
+<p class="text-[14px] font-semibold text-primary">Livraison soignée</p>
+<p class="text-[13px] text-on-surface-variant mt-0.5">Expédition sous 48 h après validation des verres.</p>
+</div>
+</div>
+</div>
+
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl bg-primary px-6 py-5 text-white">
+<div>
+<p class="text-[15px] font-semibold">Pas sûr de la forme ?</p>
+<p class="text-[13px] text-white/70 mt-1">Laissez un opticien vous conseiller en magasin ou en ligne.</p>
+</div>
+<a href="/magasins" class="inline-flex shrink-0 items-center gap-2 rounded-full bg-secondary px-5 py-3 text-[12px] font-semibold uppercase tracking-wider text-white hover:bg-secondary-container hover:text-primary transition-colors">
+Prendre rendez-vous
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,220 @@
+<div class="flex flex-col w-full">
+<div class="relative w-full h-[calc(100vh-56px)] overflow-hidden bg-surface flex flex-col lg:flex-row">
+<!-- Left: 3D Viewer / Gallery -->
+<div class="w-full lg:w-2/3 h-full relative group">
+<!-- Ambient Backdrop -->
+<div class="absolute inset-0 bg-gradient-to-tr from-surface via-surface-container-low to-surface opacity-80 z-0"></div>
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-fixed/20 rounded-full blur-[120px] mix-blend-multiply z-0 pointer-events-none"></div>
+<!-- The 3D Element Placeholder -->
+<div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-auto cursor-grab active:cursor-grabbing transition-transform duration-700 hover:scale-105" id="product-3d-container">
+
+</div>
+<!-- 3D Controls Overlay -->
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4 bg-surface/50 backdrop-blur-xl px-6 py-3 rounded-full shadow-lg border border-surface-variant/40">
+<button class="w-10 h-10 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center group/btn shadow-sm">
+<span class="material-symbols-outlined text-[20px] group-hover/btn:-rotate-45 transition-transform">rotate_90_degrees_ccw</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center group/btn shadow-sm">
+<span class="material-symbols-outlined text-[20px] group-hover/btn:scale-110 transition-transform">zoom_in</span>
+</button>
+<div class="w-[1px] h-6 bg-outline-variant/50 mx-2"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+<span class="font-label-caps text-label-caps text-on-surface">3D Active</span>
+</div>
+</div>
+<!-- Thumbnail Gallery (Left Side) -->
+<div class="absolute top-1/2 -translate-y-1/2 left-8 z-20 flex flex-col gap-4 hidden md:flex">
+<button class="w-16 h-16 rounded-xl bg-surface/80 backdrop-blur-md shadow-sm border border-primary/20 overflow-hidden relative cursor-pointer group">
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover z-0" data-alt="A minimalist overhead view of a pair of premium optical frames, resting on a stark white clinical surface with harsh dramatic lighting highlighting the metal hinges. A subtle blue light refracts through the lens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf460np9qGkOJQNSecV2YBnKCfs1hgkHZZhvQ1B20PEcfHdYoXbJdUboVOydVskl-qWo40gp_R-iuhMu_tHbTncRrz9uQxGoGL0J1-8zDud1YVGzcvclMSvg-cVAuM4CXQii77ApRyG9RsPj7Sde94R2EGUTeoQ57VqdD3GVIG0Gn0mq1-qoZfhbVOU2AKgL5vuZp1wMxTqi4bcAD9UwXUc_9O_7WOJrTyGkyPrsEK3d9bCPznZq2MoQ"/>
+</button>
+<button class="w-16 h-16 rounded-xl bg-surface/40 backdrop-blur-md shadow-sm border border-surface-variant/40 overflow-hidden relative cursor-pointer group hover:border-primary/30 transition-colors">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover z-0" data-alt="A side profile close-up macro shot of premium eyewear temples. Showing the intricate brushed titanium texture and precision engineering of the joint. Clinical bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwi7UFXbh-ePurwdWQ1ZLnSzpxBpFYLO1Y9a2MRZHCgo2S-AGjDNfyRJOqdcl_7-y9u9Ye8EOpA_F2IHZPcxks1RKtSxK5DVGCq4c46uuMvAPW78dVBgyvS-CNKnXi4pTiLnlP4m7Y8NnMY233j9PgC1yINls6Sg8aSDTLzBGkXIej-rGfpjZgkF2bxiyfdR9MKL3QuR46gWYmhXdu_AYT-drCgrkd5-ybV3_kKwsY-cmw8jBDl4HA-w"/>
+</button>
+<button class="w-16 h-16 rounded-xl bg-surface/40 backdrop-blur-md shadow-sm border border-surface-variant/40 overflow-hidden relative cursor-pointer group hover:border-primary/30 transition-colors">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover z-0" data-alt="A lifestyle shot of the eyewear folded neatly on top of a leather-bound journal, sitting on a glass desk with modern architectural lines in the blurred background. Cool, crisp lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT89b7q7ZKo6SF2P80SzdeLHnzz3AQS4ZXXBchx-9b-pWztLnKt35-upPlcCvVRy7Kb5vnywSc1dFp7nV6LOsYdSL0XQAlEb4QDfyacwVJJXtL8aIzqwJ9miNwtPdcJDhjIpttrTTOZXaUH32NdfdEktD8NoEPINHHVeelr0AkqSAmzJVPYJpgTiz5MDGEOU5Gq8XAc0c0VRwE1MiTSpL0wLRKhdNUWoACihmO-KjeEjeLJvUkFkJViQ"/>
+</button>
+</div>
+</div>
+<!-- Right: Glassmorphic Info Panel -->
+<div class="w-full lg:w-1/3 h-full overflow-y-auto bg-surface/95 backdrop-blur-3xl shadow-[-20px_0_50px_rgba(0,0,0,0.05)] relative z-30 flex flex-col scroll-smooth">
+<div class="px-8 pt-12 pb-6 flex-shrink-0 relative">
+<!-- Status Overline -->
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Collection Précision</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors text-[20px]">favorite</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors text-[20px]">share</span>
+</div>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-2 tracking-tight">Aethelgard 02</h1>
+<p class="font-headline-sm text-headline-sm text-on-surface-variant font-normal">Titanium Architecture</p>
+<div class="mt-6 flex items-baseline gap-3">
+<span class="font-headline-md text-headline-md text-primary">€420.00</span>
+<span class="font-body-md text-body-md text-outline-variant line-through">€480.00</span>
+</div>
+</div>
+<div class="flex-grow px-8 py-6 flex flex-col gap-10">
+<!-- Virtual Try On Banner -->
+<div class="relative overflow-hidden rounded-2xl bg-primary shadow-xl group cursor-pointer" id="vto-trigger">
+<div class="absolute inset-0 bg-gradient-to-r from-secondary-container/20 to-transparent z-10"></div>
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-secondary-fixed/30 rounded-full blur-2xl z-0 group-hover:bg-secondary-fixed/50 transition-colors duration-500"></div>
+<div class="relative z-20 p-6 flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Virtual Try-On</h3>
+<p class="font-body-md text-body-md text-primary-fixed-dim text-sm">Powered by WebXR Precision</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary-fixed/10 backdrop-blur-md flex items-center justify-center border border-secondary-fixed/20 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(0,210,253,0.15)] group-hover:shadow-[0_0_25px_rgba(0,210,253,0.3)]">
+<span class="material-symbols-outlined text-secondary-fixed">view_in_ar</span>
+</div>
+</div>
+<div class="h-12 bg-on-primary-fixed flex items-center justify-center gap-2 relative z-20 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]">videocam</span>
+<span class="font-label-caps text-label-caps text-secondary-fixed">Activer ma caméra</span>
+</div>
+</div>
+<!-- Color Selection -->
+<div>
+<div class="flex justify-between items-end mb-4">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase">Finitions (3)</h4>
+<span class="font-body-md text-body-md text-sm text-primary font-medium" id="color-label">Graphite Brossé</span>
+</div>
+<div class="flex gap-4">
+<button aria-label="Select Graphite Brossé" class="w-12 h-12 rounded-full p-1 border-2 border-primary relative group">
+<div class="w-full h-full rounded-full bg-[#3d4043] shadow-inner"></div>
+</button>
+<button aria-label="Select Or Pâle" class="w-12 h-12 rounded-full p-1 border-2 border-transparent hover:border-outline-variant transition-colors relative group">
+<div class="w-full h-full rounded-full bg-[#d4c3a3] shadow-inner"></div>
+</button>
+<button aria-label="Select Noir Mat" class="w-12 h-12 rounded-full p-1 border-2 border-transparent hover:border-outline-variant transition-colors relative group">
+<div class="w-full h-full rounded-full bg-[#1a1a1a] shadow-inner"></div>
+</button>
+</div>
+</div>
+<!-- Specs & Dimensions -->
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-4">Spécifications Techniques</h4>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm">
+<span class="block font-label-caps text-label-caps text-outline mb-1">Matériau</span>
+<span class="block font-body-md text-body-md text-on-surface font-medium">Titane Aérospatial</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm">
+<span class="block font-label-caps text-label-caps text-outline mb-1">Poids</span>
+<span class="block font-body-md text-body-md text-on-surface font-medium">12.4g</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm">
+<span class="block font-label-caps text-label-caps text-outline mb-1">Calibre</span>
+<span class="block font-body-md text-body-md text-on-surface font-medium">49 mm</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm">
+<span class="block font-label-caps text-label-caps text-outline mb-1">Nez</span>
+<span class="block font-body-md text-body-md text-on-surface font-medium">21 mm</span>
+</div>
+</div>
+</div>
+<!-- Measurements -->
+<div class="bg-surface-container-low p-5 rounded-2xl border border-surface-variant/50">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-surface shadow-sm flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined">straighten</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] text-on-surface mb-1">Mesurer mon écart pupillaire</h4>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-3 leading-relaxed">Utilisez notre outil clinique basé sur l'IA pour une mesure au millimètre près via votre webcam.</p>
+<button class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors flex items-center gap-1 group">
+                              Lancer la mesure
+                              <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Footer CTA -->
+<div class="flex-shrink-0 p-8 bg-surface/90 backdrop-blur-xl border-t border-surface-variant/30 sticky bottom-0 z-40">
+<a href="/configuration-verres" class="w-full h-14 bg-primary text-on-primary font-label-caps text-label-caps rounded-xl shadow-lg hover:shadow-[0_0_20px_rgba(0,103,126,0.4)] hover:bg-secondary transition-all duration-300 flex items-center justify-center gap-3 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+<span class="material-symbols-outlined text-[20px]">science</span>
+<span>Personnaliser mes verres</span>
+</a>
+<p class="text-center font-body-md text-[12px] text-outline mt-4 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+                 Expédition clinique sous 48h
+             </p>
+</div>
+</div>
+</div>
+<!-- VTO Modal (Hidden by default) -->
+<div class="fixed inset-0 z-[100] bg-on-background/90 backdrop-blur-2xl hidden opacity-0 transition-opacity duration-500 flex items-center justify-center" id="vto-modal">
+<div class="w-full max-w-5xl h-[80vh] bg-surface rounded-3xl overflow-hidden shadow-2xl relative flex flex-col md:flex-row border border-surface-variant/20 transform scale-95 transition-transform duration-500" id="vto-modal-content">
+<button class="absolute top-6 right-6 w-10 h-10 bg-surface/50 backdrop-blur-md rounded-full flex items-center justify-center z-50 text-on-surface hover:bg-surface-variant transition-colors shadow-sm" id="close-vto">
+<span class="material-symbols-outlined">close</span>
+</button>
+<!-- Video Feed Area -->
+<div class="w-full md:w-2/3 h-1/2 md:h-full bg-inverse-surface relative overflow-hidden">
+<div class="absolute inset-0 flex flex-col items-center justify-center text-inverse-on-surface z-10" id="vto-loading">
+<div class="w-16 h-16 border-4 border-surface-variant border-t-secondary-fixed rounded-full animate-spin mb-4"></div>
+<p class="font-headline-sm text-headline-sm">Initialisation WebXR...</p>
+<p class="font-body-md text-body-md text-surface-variant/70 mt-2">Calibrage de la profondeur faciale</p>
+</div>
+<!-- Simulated Camera Feed -->
+<div class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000" data-alt="A POV shot from a webcam perspective showing a person looking directly into the camera, ready for a virtual glasses fitting. High tech scanning grid overlaying their face lightly." id="vto-feed" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAA8jVAT1apV8_ieXLfrtY_zxQ_y-gzOcAjG_LfpsSxDqYWiPPTg1FH6ZYDKgp8i59-p-CyyOcYAzfYKe7yRZHEYhGNv8dOz8PD3P93dG33Az5FcRklr9lFcSjJTqob0kqVpugKRz3k3wdZosam_svX0oAbmhTwIQtFF6r27hRpjdtLAP2iOBYmpSPJ2t71LEu8rknyzY2lPzSeF_TyX-evJwfA23A8raFbnhF4PuRRm-Z4If5OFv8RKg')"></div>
+<!-- Scanning UI Overlay -->
+<div class="absolute inset-0 pointer-events-none z-20">
+<div class="w-full h-[2px] bg-secondary-fixed/50 shadow-[0_0_10px_rgba(60,215,255,0.8)] absolute top-0 left-0 animate-[scan_3s_ease-in-out_infinite]"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-32 border border-secondary-fixed/30 rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-secondary-fixed rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(60,215,255,1)]"></div>
+</div>
+</div>
+</div>
+<!-- VTO Controls -->
+<div class="w-full md:w-1/3 h-1/2 md:h-full bg-surface p-8 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Ajustement Virtuel</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Utilisez les contrôles ci-dessous pour modifier la position de la monture en temps réel.</p>
+<div class="space-y-6 flex-grow">
+<div>
+<div class="flex justify-between mb-2">
+<label class="font-label-caps text-label-caps text-outline uppercase">Hauteur (Y-Axis)</label>
+<span class="font-label-caps text-label-caps text-primary">0 mm</span>
+</div>
+<input class="w-full h-1 bg-surface-variant rounded-full appearance-none [&amp;::-webkit-slider-thumb]:appearance-none [&amp;::-webkit-slider-thumb]:w-4 [&amp;::-webkit-slider-thumb]:h-4 [&amp;::-webkit-slider-thumb]:bg-secondary [&amp;::-webkit-slider-thumb]:rounded-full cursor-pointer" max="10" min="-10" type="range" value="0"/>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<label class="font-label-caps text-label-caps text-outline uppercase">Profondeur (Z-Axis)</label>
+<span class="font-label-caps text-label-caps text-primary">-2 mm</span>
+</div>
+<input class="w-full h-1 bg-surface-variant rounded-full appearance-none [&amp;::-webkit-slider-thumb]:appearance-none [&amp;::-webkit-slider-thumb]:w-4 [&amp;::-webkit-slider-thumb]:h-4 [&amp;::-webkit-slider-thumb]:bg-secondary [&amp;::-webkit-slider-thumb]:rounded-full cursor-pointer" max="10" min="-10" type="range" value="-2"/>
+</div>
+<div class="pt-6 border-t border-surface-variant/50">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-4">Variation de Couleur</h4>
+<div class="flex gap-3">
+<button class="flex-1 py-2 rounded-lg bg-surface-container border-2 border-primary text-sm font-medium">Graphite</button>
+<button class="flex-1 py-2 rounded-lg bg-surface-container border border-transparent text-sm text-on-surface-variant hover:bg-surface-variant transition-colors">Or Pâle</button>
+</div>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full h-12 bg-surface-container-high text-on-surface font-label-caps text-label-caps rounded-xl shadow-sm hover:bg-surface-variant transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+                        Capturer l'essayage
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<style>
+    @keyframes scan {
+        0% { top: 10%; opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { top: 90%; opacity: 0; }
+    }
+    @keyframes shimmer {
+        100% { transform: translateX(100%); }
+    }
+</style>

@@ -1,0 +1,245 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"on-primary-container":"#768dad","surface":"#f7f9fb","inverse-primary":"#b0c8eb","surface-container-low":"#f2f4f6","tertiary-container":"#142538","surface-variant":"#e0e3e5","inverse-surface":"#2d3133","on-background":"#191c1e","secondary-fixed":"#b4ebff","tertiary-fixed":"#d3e4fe","error":"#ba1a1a","primary-fixed":"#d2e4ff","secondary-fixed-dim":"#3cd7ff","on-primary":"#ffffff","primary":"#000f22","surface-container":"#eceef0","secondary":"#00677e","surface-container-high":"#e6e8ea","on-error-container":"#93000a","surface-bright":"#f7f9fb","on-surface":"#191c1e","tertiary-fixed-dim":"#b7c8e1","on-surface-variant":"#43474d","outline":"#74777e","on-tertiary-container":"#7c8ca4","on-secondary-container":"#005669","on-tertiary":"#ffffff","on-secondary":"#ffffff","background":"#f7f9fb","on-error":"#ffffff","primary-container":"#0a2540","on-secondary-fixed":"#001f27","inverse-on-surface":"#eff1f3","surface-tint":"#49607e","surface-container-highest":"#e0e3e5","error-container":"#ffdad6","secondary-container":"#00d2fd","on-tertiary-fixed-variant":"#38485d","tertiary":"#000f22","on-primary-fixed":"#001c37","on-secondary-fixed-variant":"#004e5f","surface-dim":"#d8dadc","on-primary-fixed-variant":"#314865","outline-variant":"#c4c6ce","on-tertiary-fixed":"#0b1c30","primary-fixed-dim":"#b0c8eb","surface-container-lowest":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"64px","unit":"8px","glass-padding":"32px","container-max":"1440px","margin-mobile":"20px","gutter":"24px"},"fontFamily":{"body-md":["Inter"],"label-caps":["Inter"],"display-lg":["Sora"],"display-lg-mobile":["Sora"],"body-lg":["Inter"],"headline-md":["Sora"],"headline-sm":["Sora"]},"fontSize":{"body-md":["16px",{"lineHeight":"1.6","fontWeight":"400"}],"label-caps":["12px",{"lineHeight":"1","letterSpacing":"0.05em","fontWeight":"600"}],"display-lg":["64px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg-mobile":["40px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-md":["32px",{"lineHeight":"1.3","fontWeight":"600"}],"headline-sm":["24px",{"lineHeight":"1.4","fontWeight":"600"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-surface-variant/30 shadow-[0_4px_30px_rgba(0,0,0,0.03)]"><div class="h-20 w-full px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-8"><div class="flex items-center gap-3"><img alt="Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCesG9vcM5oVfLMA6c8l--vuY8kNlh7ZXYb_mQhnmKdBCvt6aLsL2_kZl2kauSG9zyPROhHx64CrsfehN3uy0IOjQCyOyU7uApDEYrPNsO2lC2CCfkM9jFMRt2Hedom32T1ZPurS0EHFARNTEZG684Z7ViCfFfsGHnlHU0KQHpGUuytb4O7ktTGI3raNme0_a_f-MyJvjaGVquZdr9OB0aNk43V_om_Ygj57vy10d2lNAi1p8oYoHEIdw"/><span class="font-headline-sm text-headline-sm tracking-tight text-primary">Lumina Optics</span></div><nav class="hidden lg:flex items-center gap-gutter ml-8" data-active-classes="text-secondary font-bold"><a aria-current="page" class="transition-colors text-secondary font-bold" data-path="collection" href="#">Collection</a><a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" data-path="virtual-try-on" href="#">Virtual Try-On</a><a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" data-path="expertise" href="#">Expertise</a><a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" data-path="magasins" href="#">Magasins</a></nav></div><div class="flex items-center gap-6"><button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">search</span></button><button class="text-on-surface-variant hover:text-primary transition-colors relative"><span class="material-symbols-outlined">shopping_bag</span><span class="absolute -top-1 -right-1 w-4 h-4 bg-secondary text-on-secondary text-[10px] rounded-full flex items-center justify-center">0</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer hover:shadow-[0_0_15px_rgba(0,103,126,0.3)] transition-all"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<!-- Breadcrumb & Header -->
+<div class="w-full max-w-container-max mx-auto px-margin-desktop py-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 relative z-10">
+<div class="flex flex-col gap-4">
+<nav class="flex items-center gap-2 text-label-caps font-label-caps text-on-surface-variant uppercase">
+<a class="hover:text-primary transition-colors" href="#">Accueil</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Collection</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-bold">Lunettes de vue</span>
+</nav>
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary tracking-tight">Lunettes de vue</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mt-2">Découvrez notre collection de montures optiques alliant précision clinique et design avant-gardiste. Conçues pour sublimer votre regard tout en assurant un confort visuel optimal.</p>
+</div>
+<div class="flex items-center gap-4 text-label-caps font-label-caps uppercase text-on-surface-variant bg-surface-container-low px-6 py-3 rounded-full shadow-sm backdrop-blur-md">
+<span>Affichage :</span>
+<button class="text-primary font-bold hover:text-secondary transition-colors">Grille</button>
+<span class="text-outline-variant">|</span>
+<button class="hover:text-secondary transition-colors">Liste</button>
+</div>
+</div>
+<!-- Main Content Grid: Sidebar + Product Grid -->
+<div class="w-full max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter pb-margin-desktop relative">
+<!-- Smart Filters Sidebar -->
+<aside class="lg:col-span-3 lg:sticky lg:top-[120px] lg:h-[calc(100vh-140px)] overflow-y-auto overflow-x-hidden pr-4 space-y-8 scrollbar-hide bg-surface-container-lowest/50 backdrop-blur-xl p-6 rounded-2xl shadow-sm border border-surface-variant/20 relative z-20">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-headline-sm font-headline-sm text-primary">Filtres</h2>
+<button class="text-label-caps font-label-caps text-on-surface-variant hover:text-secondary transition-colors uppercase">Réinitialiser</button>
+</div>
+<!-- Filter: Face Shape (Visual) -->
+<div class="space-y-4">
+<h3 class="text-body-md font-bold text-on-surface">Forme du visage</h3>
+<div class="grid grid-cols-3 gap-3">
+<button aria-label="Visage rond" class="flex flex-col items-center gap-2 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors shadow-sm focus:ring-2 focus:ring-secondary/50 outline-none group">
+<svg class="w-8 h-8 text-on-surface-variant group-hover:text-secondary transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="8"></circle>
+</svg>
+<span class="text-label-caps font-label-caps text-[10px] uppercase text-on-surface-variant">Rond</span>
+</button>
+<button aria-label="Visage ovale" class="flex flex-col items-center gap-2 p-3 rounded-xl bg-primary/5 shadow-[0_0_10px_rgba(0,103,126,0.1)] transition-colors focus:ring-2 focus:ring-secondary/50 outline-none relative overflow-hidden group">
+<div class="absolute inset-0 bg-secondary/5"></div>
+<svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<ellipse cx="12" cy="12" rx="6" ry="9"></ellipse>
+</svg>
+<span class="text-label-caps font-label-caps text-[10px] uppercase text-secondary font-bold">Ovale</span>
+</button>
+<button aria-label="Visage carré" class="flex flex-col items-center gap-2 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors shadow-sm focus:ring-2 focus:ring-secondary/50 outline-none group">
+<svg class="w-8 h-8 text-on-surface-variant group-hover:text-secondary transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<rect height="12" rx="2" width="12" x="6" y="6"></rect>
+</svg>
+<span class="text-label-caps font-label-caps text-[10px] uppercase text-on-surface-variant">Carré</span>
+</button>
+<button aria-label="Visage triangulaire" class="flex flex-col items-center gap-2 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors shadow-sm focus:ring-2 focus:ring-secondary/50 outline-none group">
+<svg class="w-8 h-8 text-on-surface-variant group-hover:text-secondary transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<polygon points="12 4 20 20 4 20"></polygon>
+</svg>
+<span class="text-label-caps font-label-caps text-[10px] uppercase text-on-surface-variant">Triangle</span>
+</button>
+</div>
+</div>
+<div class="w-full h-px bg-surface-variant/50"></div>
+<!-- Filter: Color Chips -->
+<div class="space-y-4">
+<h3 class="text-body-md font-bold text-on-surface flex justify-between items-center">Couleur <span class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span></h3>
+<div class="flex flex-wrap gap-3">
+<button aria-label="Noir" class="w-8 h-8 rounded-full bg-[#1A1A1A] shadow-sm ring-2 ring-offset-2 ring-surface ring-offset-secondary transition-all"></button>
+<button aria-label="Écaille" class="w-8 h-8 rounded-full bg-[#8B4513] shadow-sm hover:scale-110 transition-transform"></button>
+<button aria-label="Or" class="w-8 h-8 rounded-full bg-[#D4AF37] shadow-sm hover:scale-110 transition-transform"></button>
+<button aria-label="Argent" class="w-8 h-8 rounded-full bg-[#C0C0C0] shadow-sm hover:scale-110 transition-transform"></button>
+<button aria-label="Transparent" class="w-8 h-8 rounded-full bg-[#E5E4E2] shadow-sm hover:scale-110 transition-transform relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/80 to-transparent"></div>
+</button>
+<button aria-label="Bleu" class="w-8 h-8 rounded-full bg-[#000080] shadow-sm hover:scale-110 transition-transform"></button>
+</div>
+</div>
+<div class="w-full h-px bg-surface-variant/50"></div>
+<!-- Filter: Material -->
+<div class="space-y-4">
+<h3 class="text-body-md font-bold text-on-surface flex justify-between items-center">Matériau <span class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_less</span></h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-5 h-5 rounded-[4px] bg-secondary/10 flex items-center justify-center relative shadow-inner">
+<div class="w-3 h-3 rounded-[2px] bg-secondary shadow-[0_0_5px_rgba(0,103,126,0.5)]"></div>
+</div>
+<span class="text-body-md text-on-surface group-hover:text-secondary transition-colors">Acétate premium</span>
+<span class="ml-auto text-label-caps text-on-surface-variant">42</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-5 h-5 rounded-[4px] bg-surface-container-high group-hover:bg-surface-variant transition-colors flex items-center justify-center shadow-inner"></div>
+<span class="text-body-md text-on-surface group-hover:text-secondary transition-colors">Titane ultra-léger</span>
+<span class="ml-auto text-label-caps text-on-surface-variant">18</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-5 h-5 rounded-[4px] bg-surface-container-high group-hover:bg-surface-variant transition-colors flex items-center justify-center shadow-inner"></div>
+<span class="text-body-md text-on-surface group-hover:text-secondary transition-colors">Acier inoxydable</span>
+<span class="ml-auto text-label-caps text-on-surface-variant">24</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-5 h-5 rounded-[4px] bg-surface-container-high group-hover:bg-surface-variant transition-colors flex items-center justify-center shadow-inner"></div>
+<span class="text-body-md text-on-surface group-hover:text-secondary transition-colors">Bio-acétate</span>
+<span class="ml-auto text-label-caps text-on-surface-variant">12</span>
+</label>
+</div>
+</div>
+<!-- Filter: Bridge Size Range (Mock Slider) -->
+<div class="space-y-4 pt-4">
+<h3 class="text-body-md font-bold text-on-surface flex justify-between items-center">Taille du pont (mm)</h3>
+<div class="relative pt-6 pb-2 px-2">
+<div class="w-full h-1 bg-surface-variant rounded-full absolute top-8 left-0"></div>
+<div class="w-1/2 h-1 bg-secondary rounded-full absolute top-8 left-1/4 shadow-[0_0_8px_rgba(0,103,126,0.4)]"></div>
+<div class="w-4 h-4 bg-surface rounded-full shadow-md border-2 border-secondary absolute top-[26px] left-1/4 -ml-2 cursor-grab active:cursor-grabbing hover:scale-110 transition-transform"></div>
+<div class="w-4 h-4 bg-surface rounded-full shadow-md border-2 border-secondary absolute top-[26px] left-3/4 -ml-2 cursor-grab active:cursor-grabbing hover:scale-110 transition-transform"></div>
+<div class="flex justify-between text-label-caps text-on-surface-variant mt-4">
+<span>14</span>
+<span>24</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="lg:col-span-9">
+<!-- Active Filters Chips -->
+<div class="flex flex-wrap items-center gap-3 mb-8">
+<span class="text-label-caps font-label-caps uppercase text-on-surface-variant">Filtres actifs :</span>
+<div class="flex items-center gap-2 bg-primary/5 px-3 py-1.5 rounded-full backdrop-blur-sm shadow-sm border border-primary/10">
+<span class="text-[13px] font-bold text-primary">Forme: Ovale</span>
+<button class="material-symbols-outlined text-[16px] text-primary hover:text-error transition-colors">close</button>
+</div>
+<div class="flex items-center gap-2 bg-primary/5 px-3 py-1.5 rounded-full backdrop-blur-sm shadow-sm border border-primary/10">
+<span class="text-[13px] font-bold text-primary">Matériau: Acétate</span>
+<button class="material-symbols-outlined text-[16px] text-primary hover:text-error transition-colors">close</button>
+</div>
+<button class="text-[13px] text-secondary hover:underline underline-offset-4 transition-all ml-2">Tout effacer</button>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Product Card 1 -->
+<article class="group relative flex flex-col bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden isolate" style="transform: perspective(1000px);">
+<!-- Glass Badge -->
+<div class="absolute top-4 left-4 z-20 bg-surface/80 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm border border-white/50 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-label-caps font-label-caps uppercase text-secondary">Nouveauté</span>
+</div>
+<!-- VTO Button & Wishlist -->
+<div class="absolute top-4 right-4 z-20 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-x-4 group-hover:translate-x-0">
+<button class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur-md shadow-sm border border-white/50 flex items-center justify-center text-primary hover:text-secondary hover:shadow-[0_0_15px_rgba(0,103,126,0.2)] transition-all" title="Essai Virtuel 3D">
+<span class="material-symbols-outlined">view_in_ar</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur-md shadow-sm border border-white/50 flex items-center justify-center text-on-surface-variant hover:text-error transition-all" title="Ajouter aux favoris">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<!-- Image Area -->
+<div class="relative w-full aspect-[4/3] bg-surface-container-low flex items-center justify-center p-6 overflow-hidden">
+<!-- Subtle background glow on hover -->
+<div class="absolute inset-0 bg-gradient-to-tr from-secondary/0 via-secondary/0 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<div class="w-full h-full bg-contain bg-center bg-no-repeat group-hover:scale-105 group-hover:-translate-y-2 transition-transform duration-700 ease-out z-10 drop-shadow-md" data-alt="Une paire de lunettes de vue haut de gamme en acétate écaille de tortue, forme ovale, posée sur un fond blanc pur très lumineux (high-key). Éclairage studio avec des reflets subtils sur les verres soulignant la qualité du traitement anti-reflet. Style minimaliste, clinique et luxueux." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1hrHkIzOELATVYTwAcUUVLE_IZ_Lc8ozp0TZAfO_7SBN0DhjgpGPIL_-SSH2XkcmZvCvdWMF5b5xSMXEKiaLxG-8-QBP4jpfCJ89LqsywfSgwvn-9iFYueGo3VWEt7eTazGPQdk4MuXUmaWXzOEsKGlbCUs5L32WNnoDG2msxO3h32D0IDc3quhYD_TRW_XPtmjdu4SUtvLynLYQGINJE02KIMMe7q3W9hLmIZNbLZAsODLehEYjHmw')"></div>
+<!-- 3D Indicator Dots (Pulse) -->
+<div class="absolute bottom-6 right-6 z-20 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity delay-100">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_5px_rgba(0,103,126,0.8)]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary/30"></span>
+</div>
+</div>
+<!-- Content Area (Glass frosted effect) -->
+<div class="relative p-6 bg-surface-container-lowest z-20 before:absolute before:inset-0 before:-top-4 before:bg-gradient-to-b before:from-transparent before:to-surface-container-lowest before:backdrop-blur-sm before:-z-10 group-hover:bg-surface transition-colors duration-500">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-1 group-hover:text-secondary transition-colors">Aura Eclipse</h3>
+<p class="text-label-caps font-label-caps uppercase text-on-surface-variant">Acétate Tortoise</p>
+</div>
+<span class="text-body-lg font-bold text-primary">285€</span>
+</div>
+<div class="flex items-center gap-4 mt-4">
+<!-- Color Swatches -->
+<div class="flex items-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-[#8B4513] ring-1 ring-offset-1 ring-outline shadow-sm cursor-pointer" title="Tortoise"></span>
+<span class="w-4 h-4 rounded-full bg-[#1A1A1A] cursor-pointer hover:ring-1 hover:ring-offset-1 hover:ring-outline transition-all" title="Black"></span>
+<span class="w-4 h-4 rounded-full bg-gradient-to-br from-white to-gray-200 cursor-pointer hover:ring-1 hover:ring-offset-1 hover:ring-outline transition-all" title="Clear"></span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-label-caps uppercase">+2 couleurs</span>
+</div>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="group relative flex flex-col bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden isolate" style="transform: perspective(1000px);">
+<div class="absolute top-4 right-4 z-20 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-x-4 group-hover:translate-x-0">
+<button class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur-md shadow-sm border border-white/50 flex items-center justify-center text-primary hover:text-secondary hover:shadow-[0_0_15px_rgba(0,103,126,0.2)] transition-all" title="Essai Virtuel 3D">
+<span class="material-symbols-outlined">view_in_ar</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur-md shadow-sm border border-white/50 flex items-center justify-center text-on-surface-variant hover:text-error transition-all" title="Ajouter aux favoris">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="relative w-full aspect-[4/3] bg-surface-container-low flex items-center justify-center p-6 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-tr from-secondary/0 via-secondary/0 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<div class="w-full h-full bg-contain bg-center bg-no-repeat group-hover:scale-105 group-hover:-translate-y-2 transition-transform duration-700 ease-out z-10 drop-shadow-md" data-alt="Une monture de lunettes de vue ultra-légère en titane brossé de forme ronde classique, posée sur un fond gris très clair. Éclairage doux et directionnel créant une ombre portée subtile qui souligne la finesse du métal. Ambiance de clinique de luxe." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZnye_4h-37jJT_0QVVU5dgcDfrb8OFkcwZCxyF6IkfjcaGiGvrPFnunvvj-LiUSjWRTePC7dDRXEtNRWfbmAaKOwWjjah6_Nekx0hQYhjSWJpdAsMdl7P2Y8IzcOgy0AKIzMaTKlemjT07_9l4SV1nfTIy1tePll2Pljk-Xl_1X3cOwCy-XjqqddVX5tCDAXnMtXeOv-iaNEtLcGrIyGpuuWEVXWrjYUblGrFf0czQ-lNhWG0y3RsRQ')"></div>
+</div>
+<div class="relative p-6 bg-surface-container-lowest z-20 before:absolute before:inset-0 before:-top-4 before:bg-gradient-to-b before:from-transparent before:to-surface-container-lowest before:backdrop-blur-sm before:-z-10 group-hover:bg-surface transition-colors duration-500">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-1 group-hover:text-secondary transition-colors">Titanium X1</h3>
+<p class="text-label-caps font-label-caps uppercase text-on-surface-variant">Titane Brossé</p>
+</div>
+<span class="text-body-lg font-bold text-primary">340€</span>
+</div>
+<div class="flex items-center gap-4 mt-4">
+<div class="flex items-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-[#A9A9A9] ring-1 ring-offset-1 ring-outline shadow-sm cursor-pointer" title="Brushed Silver"></span>
+<span class="w-4 h-4 rounded-full bg-[#36454F] cursor-pointer hover:ring-1 hover:ring-offset-1 hover:ring-outline transition-all" title="Gunmetal"></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Loading Placeholder (Partial Prerendering UX) -->
+<article class="group relative flex flex-col bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-variant/30 overflow-hidden animate-pulse">
+<div class="relative w-full aspect-[4/3] bg-surface-container-low flex items-center justify-center">
+<div class="w-32 h-16 bg-surface-variant rounded-full opacity-50"></div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div class="space-y-2 w-2/3">
+<div class="h-6 bg-surface-variant rounded-md w-full"></div>
+<div class="h-3 bg-surface-variant rounded-md w-1/2"></div>
+</div>
+<div class="h-6 bg-surface-variant rounded-md w-1/4"></div>
+</div>
+<div class="flex items-center gap-2 mt-4">
+<div class="w-4 h-4 rounded-full bg-surface-variant"></div>
+<div class="w-4 h-4 rounded-full bg-surface-variant"></div>
+</div>
+</div>
+</article>
+</div>
+<!-- Infinite Scroll Trigger Area -->
+<div class="w-full flex justify-center mt-16 pb-8">
+<button class="bg-transparent border border-outline text-primary font-bold px-8 py-3 rounded-full hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined animate-spin text-[20px]">sync</span>
+                    Charger plus de modèles
+                </button>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-low py-20 border-t border-surface-variant/30"><div class="max-w-container-max mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16"><div class="space-y-6"><div><img alt="Logo" class="h-8 w-auto mb-4 grayscale opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCesG9vcM5oVfLMA6c8l--vuY8kNlh7ZXYb_mQhnmKdBCvt6aLsL2_kZl2kauSG9zyPROhHx64CrsfehN3uy0IOjQCyOyU7uApDEYrPNsO2lC2CCfkM9jFMRt2Hedom32T1ZPurS0EHFARNTEZG684Z7ViCfFfsGHnlHU0KQHpGUuytb4O7ktTGI3raNme0_a_f-MyJvjaGVquZdr9OB0aNk43V_om_Ygj57vy10d2lNAi1p8oYoHEIdw"/><p class="font-body-md text-on-surface-variant text-sm">Defining precision optical excellence since 1994. Elevating your vision through clinical mastery and aesthetic distinction.</p></div><div class="flex gap-4"><span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">share</span><span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">public</span><span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">movie</span></div></div><div class="space-y-4"><h4 class="font-label-caps text-label-caps text-primary">Assurance &amp; Health</h4><nav class="flex flex-col gap-2"><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Vision Quality Charter</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Prescription Guide</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Blue Light Health</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Professional Opticians</a></nav></div><div class="space-y-4"><h4 class="font-label-caps text-label-caps text-primary">Customer Service</h4><nav class="flex flex-col gap-2"><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Store Locator</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Order Tracking</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Insurance Support</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Appointment Booking</a></nav></div><div class="space-y-4"><h4 class="font-label-caps text-label-caps text-primary">Newsletter</h4><p class="text-sm text-on-surface-variant">Receive our latest collections and optical news.</p><div class="flex h-10 border-b-2 border-surface-variant focus-within:border-secondary transition-colors pb-1"><input class="bg-transparent w-full text-sm outline-none placeholder:text-outline-variant" placeholder="your@email.com" type="email"/><button class="material-symbols-outlined text-secondary">arrow_forward</button></div></div></div><div class="pt-8 border-t border-surface-variant/20 flex flex-col md:flex-row justify-between items-center gap-4"><p class="text-[12px] font-label-caps text-outline uppercase">© 2024 Lumina Optics. Clinical Excellence. Visual Elegance.</p><div class="flex gap-6 text-[12px] font-label-caps text-outline uppercase"><a class="hover:text-primary" href="#">Privacy</a><a class="hover:text-primary" href="#">Terms</a><a class="hover:text-primary" href="#">Accessibility</a></div></div></div></footer></body></html>

@@ -1,0 +1,127 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"on-primary-container":"#768dad","surface":"#f7f9fb","inverse-primary":"#b0c8eb","surface-container-low":"#f2f4f6","tertiary-container":"#142538","surface-variant":"#e0e3e5","inverse-surface":"#2d3133","on-background":"#191c1e","secondary-fixed":"#b4ebff","tertiary-fixed":"#d3e4fe","error":"#ba1a1a","primary-fixed":"#d2e4ff","secondary-fixed-dim":"#3cd7ff","on-primary":"#ffffff","primary":"#000f22","surface-container":"#eceef0","secondary":"#00677e","surface-container-high":"#e6e8ea","on-error-container":"#93000a","surface-bright":"#f7f9fb","on-surface":"#191c1e","tertiary-fixed-dim":"#b7c8e1","on-surface-variant":"#43474d","outline":"#74777e","on-tertiary-container":"#7c8ca4","on-secondary-container":"#005669","on-tertiary":"#ffffff","on-secondary":"#ffffff","background":"#f7f9fb","on-error":"#ffffff","primary-container":"#0a2540","on-secondary-fixed":"#001f27","inverse-on-surface":"#eff1f3","surface-tint":"#49607e","surface-container-highest":"#e0e3e5","error-container":"#ffdad6","secondary-container":"#00d2fd","on-tertiary-fixed-variant":"#38485d","tertiary":"#000f22","on-primary-fixed":"#001c37","on-secondary-fixed-variant":"#004e5f","surface-dim":"#d8dadc","on-primary-fixed-variant":"#314865","outline-variant":"#c4c6ce","on-tertiary-fixed":"#0b1c30","primary-fixed-dim":"#b0c8eb","surface-container-lowest":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"64px","unit":"8px","glass-padding":"32px","container-max":"1440px","margin-mobile":"20px","gutter":"24px"},"fontFamily":{"body-md":["Inter"],"label-caps":["Inter"],"display-lg":["Sora"],"display-lg-mobile":["Sora"],"body-lg":["Inter"],"headline-md":["Sora"],"headline-sm":["Sora"]},"fontSize":{"body-md":["16px",{"lineHeight":"1.6","fontWeight":"400"}],"label-caps":["12px",{"lineHeight":"1","letterSpacing":"0.05em","fontWeight":"600"}],"display-lg":["64px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg-mobile":["40px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-md":["32px",{"lineHeight":"1.3","fontWeight":"600"}],"headline-sm":["24px",{"lineHeight":"1.4","fontWeight":"600"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-surface-variant/30 shadow-[0_4px_30px_rgba(0,0,0,0.03)]"><div class="h-20 w-full px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-8"><div class="flex items-center gap-3"><img alt="Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCesG9vcM5oVfLMA6c8l--vuY8kNlh7ZXYb_mQhnmKdBCvt6aLsL2_kZl2kauSG9zyPROhHx64CrsfehN3uy0IOjQCyOyU7uApDEYrPNsO2lC2CCfkM9jFMRt2Hedom32T1ZPurS0EHFARNTEZG684Z7ViCfFfsGHnlHU0KQHpGUuytb4O7ktTGI3raNme0_a_f-MyJvjaGVquZdr9OB0aNk43V_om_Ygj57vy10d2lNAi1p8oYoHEIdw"/><span class="font-headline-sm text-headline-sm tracking-tight text-primary">Lumina Optics</span></div><nav class="hidden lg:flex items-center gap-gutter ml-8" data-active-classes="text-secondary font-bold"><a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" data-path="collection" href="#">Collection</a><a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" data-path="virtual-try-on" href="#">Virtual Try-On</a><a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" data-path="expertise" href="#">Expertise</a><a aria-current="page" class="transition-colors text-secondary font-bold" data-path="magasins" href="#">Magasins</a></nav></div><div class="flex items-center gap-6"><button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">search</span></button><button class="text-on-surface-variant hover:text-primary transition-colors relative"><span class="material-symbols-outlined">shopping_bag</span><span class="absolute -top-1 -right-1 w-4 h-4 bg-secondary text-on-secondary text-[10px] rounded-full flex items-center justify-center">0</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer hover:shadow-[0_0_15px_rgba(0,103,126,0.3)] transition-all"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full relative overflow-hidden">
+<!-- Immersive Background with Blur Elements for Depth -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-secondary-fixed opacity-30 blur-[120px]"></div>
+<div class="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary-fixed-dim opacity-20 blur-[150px]"></div>
+</div>
+<!-- Main Content Container with Glassmorphism 2.0 -->
+<div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-32 flex flex-col md:flex-row gap-16 items-center min-h-[85vh]">
+<!-- Left: Celebration & Typography (Asymmetrical alignment) -->
+<div class="w-full md:w-1/2 flex flex-col items-start pt-12 md:pt-0">
+<!-- Order Number Badge -->
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container/50 backdrop-blur-md mb-8 border border-white/40 shadow-sm transition-transform hover:scale-105 duration-300">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Commande #LO-2026-X</span>
+</div>
+<!-- Header -->
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6 leading-tight">
+                Commande <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Confirmée !</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mb-12">
+                Nos opticiens préparent votre équipement avec précision. Un e-mail de confirmation vient de vous être envoyé.
+            </p>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row gap-6 w-full max-w-md">
+<button class="relative overflow-hidden group flex-1 h-14 rounded-lg bg-primary text-on-primary font-label-caps text-label-caps flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,103,126,0.4)]">
+<span class="relative z-10 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">dashboard</span>
+                        Tableau de bord
+                    </span>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+</button>
+<button class="flex-1 h-14 rounded-lg bg-white/40 backdrop-blur-xl border border-white/60 text-primary font-label-caps text-label-caps flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white/60 hover:shadow-lg">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                    Partager
+                </button>
+</div>
+</div>
+<!-- Right: 3D Product Presentation & Timeline -->
+<div class="w-full md:w-1/2 relative flex justify-center items-center">
+<!-- Floating Product Card (Glass Layer) -->
+<div class="w-full max-w-md bg-white/70 backdrop-blur-[24px] border border-white/40 rounded-2xl shadow-xl p-glass-padding transform transition-transform duration-700 hover:-translate-y-4 hover:shadow-2xl group">
+<!-- Product Image Area -->
+<div class="relative w-full aspect-square mb-8 rounded-xl overflow-hidden bg-surface-container-low flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-br from-surface to-surface-container-high opacity-50"></div>
+<!-- 3D Render Placeholder -->
+<img alt="Lunettes commandées" class="w-full h-full object-cover relative z-10 transition-transform duration-1000 group-hover:scale-110" data-alt="High quality 3D render of a pair of minimalist, premium eyeglasses with clear lenses and a matte black titanium frame. The glasses are floating slightly above a soft, clinical white surface. Lighting is pristine, diffused, and high-contrast, casting a soft cyan refraction through the lenses, matching the Lumina Optics brand aesthetic. Studio lighting, macro photography feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCat2p_hjqjryo1mRdY0vmuiXM0xpVKmbSqs_pgVaYLVHezTWINcVxuhlSjw7jNlNSwEimJJVWBjoRhBQ1H5CzygdRfg7Ln7aE2UceJWobZzxVkxnFz8_elGFzLpF4K4ue_h-_yAd2X4ZyO9gCx08s-U2mY1futwc4tEQB4TvCAoYsocNE9cfqIycLSUpKXEcdx_1qVzMaiEAauMV0bO8CygvVLn6aCvzdU55pbFN6Wupxc2eKPQ058BA"/>
+<!-- 3D indicator -->
+<div class="absolute bottom-4 right-4 z-20 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-primary text-[16px]">3d_rotation</span>
+</div>
+</div>
+<!-- Next Steps Timeline -->
+<div class="relative">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6 border-b border-surface-variant/50 pb-2">Progression de la commande</h3>
+<div class="relative flex flex-col gap-6">
+<!-- Progress Line -->
+<div class="absolute left-[11px] top-4 bottom-4 w-[2px] bg-surface-variant/50 z-0"></div>
+<div class="absolute left-[11px] top-4 h-[25%] w-[2px] bg-secondary z-0 transition-all duration-1000 ease-in-out" id="progress-line"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex gap-4 items-start group/step">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(0,103,126,0.3)] transition-transform group-hover/step:scale-110">
+<span class="material-symbols-outlined text-on-secondary text-[12px] font-bold">check</span>
+</div>
+<div class="pt-0.5">
+<h4 class="font-label-caps text-label-caps text-primary">Contrôle Optique</h4>
+<p class="text-[13px] font-body-md text-on-surface-variant mt-1">Validation de l'ordonnance en cours.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex gap-4 items-start group/step">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant transition-colors group-hover/step:border-secondary">
+<span class="material-symbols-outlined text-outline text-[12px]">build</span>
+</div>
+<div class="pt-0.5 opacity-60">
+<h4 class="font-label-caps text-label-caps text-on-surface">Fabrication Labo</h4>
+<p class="text-[13px] font-body-md text-on-surface-variant mt-1">Taillage des verres sur-mesure.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex gap-4 items-start group/step">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant transition-colors group-hover/step:border-secondary">
+<span class="material-symbols-outlined text-outline text-[12px]">verified</span>
+</div>
+<div class="pt-0.5 opacity-60">
+<h4 class="font-label-caps text-label-caps text-on-surface">Contrôle Qualité</h4>
+<p class="text-[13px] font-body-md text-on-surface-variant mt-1">Inspection clinique finale.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex gap-4 items-start group/step">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant transition-colors group-hover/step:border-secondary">
+<span class="material-symbols-outlined text-outline text-[12px]">local_shipping</span>
+</div>
+<div class="pt-0.5 opacity-60">
+<h4 class="font-label-caps text-label-caps text-on-surface">Expédition Premium</h4>
+<p class="text-[13px] font-body-md text-on-surface-variant mt-1">Remise au transporteur sécurisé.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Elements behind card -->
+<div class="absolute -right-8 top-1/4 w-32 h-32 rounded-full border border-primary-fixed-dim/40 -z-10 mix-blend-multiply"></div>
+<div class="absolute -left-12 bottom-1/4 font-display-lg text-display-lg text-outline-variant/10 -z-10 transform -rotate-90 select-none whitespace-nowrap">LUMINA OPTICS</div>
+</div>
+</div>
+</div>
+<style>
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+</style>
+<script>
+// Simulate progress animation on load
+document.addEventListener('DOMContentLoaded', () => {
+    const progressLine = document.getElementById('progress-line');
+    if(progressLine) {
+        setTimeout(() => {
+            progressLine.style.height = '35%'; // Animate just past step 1 to show it's working on step 2
+        }, 500);
+    }
+});
+</script></main><footer class="w-full bg-surface-container-low py-20 border-t border-surface-variant/30"><div class="max-w-container-max mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16"><div class="space-y-6"><div><img alt="Logo" class="h-8 w-auto mb-4 grayscale opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCesG9vcM5oVfLMA6c8l--vuY8kNlh7ZXYb_mQhnmKdBCvt6aLsL2_kZl2kauSG9zyPROhHx64CrsfehN3uy0IOjQCyOyU7uApDEYrPNsO2lC2CCfkM9jFMRt2Hedom32T1ZPurS0EHFARNTEZG684Z7ViCfFfsGHnlHU0KQHpGUuytb4O7ktTGI3raNme0_a_f-MyJvjaGVquZdr9OB0aNk43V_om_Ygj57vy10d2lNAi1p8oYoHEIdw"/><p class="font-body-md text-on-surface-variant text-sm">Defining precision optical excellence since 1994. Elevating your vision through clinical mastery and aesthetic distinction.</p></div><div class="flex gap-4"><span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">share</span><span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">public</span><span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">movie</span></div></div><div class="space-y-4"><h4 class="font-label-caps text-label-caps text-primary">Assurance &amp; Health</h4><nav class="flex flex-col gap-2"><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Vision Quality Charter</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Prescription Guide</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Blue Light Health</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Professional Opticians</a></nav></div><div class="space-y-4"><h4 class="font-label-caps text-label-caps text-primary">Customer Service</h4><nav class="flex flex-col gap-2"><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Store Locator</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Order Tracking</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Insurance Support</a><a class="text-sm text-on-surface-variant hover:text-secondary" href="#">Appointment Booking</a></nav></div><div class="space-y-4"><h4 class="font-label-caps text-label-caps text-primary">Newsletter</h4><p class="text-sm text-on-surface-variant">Receive our latest collections and optical news.</p><div class="flex h-10 border-b-2 border-surface-variant focus-within:border-secondary transition-colors pb-1"><input class="bg-transparent w-full text-sm outline-none placeholder:text-outline-variant" placeholder="your@email.com" type="email"/><button class="material-symbols-outlined text-secondary">arrow_forward</button></div></div></div><div class="pt-8 border-t border-surface-variant/20 flex flex-col md:flex-row justify-between items-center gap-4"><p class="text-[12px] font-label-caps text-outline uppercase">© 2024 Lumina Optics. Clinical Excellence. Visual Elegance.</p><div class="flex gap-6 text-[12px] font-label-caps text-outline uppercase"><a class="hover:text-primary" href="#">Privacy</a><a class="hover:text-primary" href="#">Terms</a><a class="hover:text-primary" href="#">Accessibility</a></div></div></div></footer></body></html>
