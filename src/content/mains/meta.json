@@ -11,10 +11,6 @@
     "className": "w-full pt-16 bg-background lg:pt-28",
     "source": "fiche-produit.html"
   },
-  "configuration-verres": {
-    "className": "w-full pt-16 bg-background lg:pt-28",
-    "source": "configuration-verres.html"
-  },
   "panier": {
     "className": "w-full pt-16 bg-background lg:pt-28",
     "source": "panier-configuration.html"

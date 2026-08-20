@@ -56,7 +56,7 @@ export function MagasinsClient() {
   };
 
   return (
-    <div className="mx-auto max-w-container-max px-margin-desktop py-10">
+    <div className="mx-auto max-w-container-max px-margin-mobile py-8 md:px-margin-desktop md:py-10">
       <h1 className="text-3xl font-semibold text-primary md:text-4xl">Nos magasins</h1>
       <p className="mt-2 max-w-2xl text-on-surface-variant">
         Prenez rendez-vous pour un examen, un ajustement ou un retrait de commande.

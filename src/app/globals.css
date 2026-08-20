@@ -111,7 +111,7 @@
   }
 
   body {
-    overscroll-behavior: none;
+    overscroll-behavior-y: none;
     background-color: var(--color-background);
     color: var(--color-on-surface);
     font-family: var(--font-rajdhani), ui-sans-serif, system-ui, sans-serif;
@@ -133,7 +133,17 @@
   }
 
   ::-webkit-scrollbar {
-    display: none;
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--color-outline) 45%, transparent);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
   }
 }
 
@@ -176,6 +186,55 @@
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroKen {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.home-hero-bg {
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-hero-bg {
+    animation: heroKen 18s ease-in-out infinite alternate;
+  }
+}
+
+.home-marquee {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-marquee {
+    animation: marquee 28s linear infinite;
   }
 }
 

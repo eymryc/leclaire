@@ -40,7 +40,7 @@ export default function CataloguePage() {
       />
       <Suspense
         fallback={
-          <div className="px-margin-desktop py-20 text-on-surface-variant">
+          <div className="px-margin-mobile py-12 md:px-margin-desktop md:py-20 text-on-surface-variant">
             Chargement de la collection…
           </div>
         }

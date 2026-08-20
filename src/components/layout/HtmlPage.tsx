@@ -3,7 +3,7 @@ import { getMainHtml } from "@/lib/get-main-html";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 
-type NavActive = "collection" | "virtual-try-on" | "expertise" | "magasins";
+type NavActive = "collection" | "virtual-try-on" | "magasins";
 
 type Props = {
   id: HtmlPageId;

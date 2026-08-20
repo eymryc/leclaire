@@ -17,7 +17,7 @@ export function MonEspaceClient() {
   const { ids, toggle } = useWishlist();
 
   return (
-    <div className="mx-auto max-w-container-max px-margin-desktop py-10">
+    <div className="mx-auto max-w-container-max px-margin-mobile py-8 md:px-margin-desktop md:py-10">
       <h1 className="text-3xl font-semibold text-primary md:text-4xl">Mon espace</h1>
       <p className="mt-2 text-on-surface-variant">Commandes, rendez-vous et favoris — enregistrés sur cet appareil.</p>
 
@@ -34,8 +34,8 @@ export function MonEspaceClient() {
               {orders.map((o) => (
                 <li key={o.id} className="rounded-xl border border-surface-variant/50 p-4">
                   <div className="flex items-center justify-between gap-3">
-                    <p className="font-semibold text-primary">{o.id}</p>
-                    <span className="rounded-full bg-secondary/10 px-2.5 py-1 text-[11px] font-semibold uppercase text-secondary">
+                    <p className="min-w-0 truncate font-semibold text-primary">{o.id}</p>
+                    <span className="shrink-0 rounded-full bg-secondary/10 px-2.5 py-1 text-[11px] font-semibold uppercase text-secondary">
                       {statusLabel[o.status]}
                     </span>
                   </div>

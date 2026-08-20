@@ -180,11 +180,19 @@ Tester sur plusieurs conditions :
 
 ---
 
-## Prochaine action
+## Prochaine action (Meshy)
 
-1. Déposer `aura-eclipse.glb` dans `/public/models/`
-2. (Idéalement) déposer aussi `face-occluder.glb`
-3. Demander au dev d’**activer l’étape 3** (remplacer le collage 2D par Three.js)
+1. Sur [Meshy](https://www.meshy.ai/) : Image → 3D avec une photo face de la monture (fond uni de préférence).
+2. Télécharger en **GLB**.
+3. Renommer et déposer :
+   ```
+   public/models/aura-eclipse.glb
+   ```
+   (même nom que le `slug` du produit, ou le chemin indiqué dans `modelGlb`)
+4. Recharger la fiche produit → Essayage virtuel → le badge affiche **3D actif**.
+
+Occluder optionnel : `public/models/face-occluder.glb`  
+S’il est absent, un occluder de secours (plans oreilles) est généré en code.
 
 ---
 

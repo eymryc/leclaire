@@ -13,7 +13,7 @@ export function ConfirmationClient() {
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute right-[-5%] top-[-10%] h-[40vw] w-[40vw] rounded-full bg-secondary-fixed opacity-30 blur-[120px]" />
       </div>
-      <div className="relative mx-auto flex max-w-container-max flex-col items-center px-margin-desktop py-20 text-center">
+      <div className="relative mx-auto flex max-w-container-max flex-col items-center px-margin-mobile py-12 md:px-margin-desktop md:py-20 text-center">
         <span className="material-symbols-outlined text-5xl text-secondary">check_circle</span>
         <h1 className="mt-4 text-3xl font-semibold text-primary md:text-5xl">Commande confirmée</h1>
         {last ? (

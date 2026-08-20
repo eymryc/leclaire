@@ -12,7 +12,7 @@ import { OptiqueMegaMenu } from "@/components/layout/OptiqueMegaMenu";
 const LOGO = "/logo/LeClaire-logo.jpg";
 
 type Props = {
-  active?: "collection" | "virtual-try-on" | "expertise" | "magasins";
+  active?: "collection" | "virtual-try-on" | "magasins";
 };
 
 export function SiteHeader({ active }: Props) {
@@ -32,10 +32,8 @@ export function SiteHeader({ active }: Props) {
   const optiqueActive =
     active === "collection" ||
     active === "virtual-try-on" ||
-    active === "expertise" ||
     pathname.startsWith("/catalogue") ||
-    pathname.startsWith("/produit") ||
-    pathname.startsWith("/configuration-verres");
+    pathname.startsWith("/produit");
   const magasinsActive =
     active === "magasins" || pathname.startsWith("/magasins");
 
@@ -87,23 +85,10 @@ export function SiteHeader({ active }: Props) {
     if (id === "soleil")
       return pathname.startsWith("/catalogue") && category === "soleil";
     if (id === "vue")
-      return (
-        pathname.startsWith("/catalogue") &&
-        category !== "soleil" &&
-        category !== "progressif"
-      );
-    if (id === "essayage")
-      return active === "virtual-try-on" || pathname.startsWith("/produit");
-    if (id === "expertise")
-      return (
-        active === "expertise" || pathname.startsWith("/configuration-verres")
-      );
-    if (id === "magasins" || id === "services") return magasinsActive;
-    if (id === "offres")
-      return (
-        pathname.startsWith("/catalogue") &&
-        searchParams.get("sort") === "nouveautes"
-      );
+      return pathname.startsWith("/catalogue") && category === "vue";
+    if (id === "magasins") return magasinsActive;
+    if (id === "qui-sommes-nous") return pathname.startsWith("/qui-sommes-nous");
+    if (id === "contact") return pathname.startsWith("/contact");
     return false;
   };
 
@@ -121,13 +106,13 @@ export function SiteHeader({ active }: Props) {
       </a>
 
       {/* Top bar — recherche vraiment centrée (desktop) */}
-      <div className="mx-auto flex h-16 max-w-container-max items-center justify-between gap-3 px-margin-desktop md:grid md:grid-cols-[1fr_minmax(0,28rem)_1fr] md:justify-items-stretch">
-        <div className="flex min-w-0 items-center gap-2 md:justify-self-start lg:gap-3">
+      <div className="mx-auto flex h-16 max-w-container-max items-center justify-between gap-2 px-margin-mobile sm:gap-3 lg:grid lg:grid-cols-[1fr_minmax(0,28rem)_1fr] lg:justify-items-stretch lg:px-margin-desktop">
+        <div className="flex min-w-0 items-center gap-1.5 lg:justify-self-start lg:gap-3">
           <Link href="/" className="shrink-0" aria-label="LeClaire — Accueil">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt="LeClaire"
-              className="h-10 w-auto rounded-xl object-contain shadow-sm sm:h-11"
+              className="h-9 w-auto rounded-xl object-contain shadow-sm sm:h-11"
               src={LOGO}
             />
           </Link>
@@ -164,7 +149,7 @@ export function SiteHeader({ active }: Props) {
         </div>
 
         <form
-          className="relative hidden w-full justify-self-center md:block"
+          className="relative hidden w-full justify-self-center lg:block"
           onSubmit={(e) => {
             e.preventDefault();
             setSearchOpen(true);
@@ -187,10 +172,10 @@ export function SiteHeader({ active }: Props) {
           />
         </form>
 
-        <div className="flex items-center gap-1 justify-self-end sm:gap-2">
+        <div className="flex items-center gap-0.5 justify-self-end sm:gap-1.5">
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center text-on-surface-variant md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center text-on-surface-variant lg:hidden"
             aria-label="Rechercher"
             onClick={() => setSearchOpen(true)}
           >
@@ -198,38 +183,38 @@ export function SiteHeader({ active }: Props) {
           </button>
           <Link
             href="/mon-espace"
-            className="relative inline-flex h-10 w-10 items-center justify-center text-on-surface-variant transition hover:text-primary"
+            className="relative inline-flex h-11 w-11 items-center justify-center text-on-surface-variant transition hover:text-primary"
             aria-label={`Favoris${wishlistIds.length ? `, ${wishlistIds.length}` : ""}`}
           >
             <span className="material-symbols-outlined text-[22px]">favorite</span>
             {wishlistIds.length > 0 ? (
-              <span className="absolute top-1 right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-primary text-[9px] text-white">
+              <span className="absolute top-1.5 right-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-primary text-[9px] text-white">
                 {wishlistIds.length}
               </span>
             ) : null}
           </Link>
           <Link
             href="/mon-espace"
-            className="hidden h-10 w-10 items-center justify-center text-on-surface-variant transition hover:text-primary sm:inline-flex"
+            className="hidden h-11 w-11 items-center justify-center text-on-surface-variant transition hover:text-primary sm:inline-flex"
             aria-label="Mon espace"
           >
             <span className="material-symbols-outlined text-[22px]">person</span>
           </Link>
           <Link
             href="/panier"
-            className="relative inline-flex h-10 w-10 items-center justify-center text-on-surface-variant transition hover:text-primary"
+            className="relative inline-flex h-11 w-11 items-center justify-center text-on-surface-variant transition hover:text-primary"
             aria-label={`Panier${count ? `, ${count} article${count > 1 ? "s" : ""}` : ""}`}
           >
             <span className="material-symbols-outlined text-[22px]">
               shopping_bag
             </span>
-            <span className="absolute top-1 right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-primary text-[9px] text-white">
+            <span className="absolute top-1.5 right-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-primary text-[9px] text-white">
               {count}
             </span>
           </Link>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-surface-variant/60 text-primary lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-surface-variant/60 text-primary lg:hidden"
             aria-expanded={mobileOpen}
             aria-controls="nav-mobile"
             onClick={() => setMobileOpen((v) => !v)}
@@ -249,7 +234,7 @@ export function SiteHeader({ active }: Props) {
         className="hidden border-t border-surface-variant/20 lg:block"
         aria-label="Optique"
       >
-        <ul className="mx-auto flex h-12 max-w-container-max items-center justify-center gap-1 overflow-x-auto px-margin-desktop">
+        <ul className="scrollbar-hide mx-auto flex h-12 max-w-container-max items-center justify-center gap-1 overflow-x-auto px-margin-desktop">
           {primaireNav.map((item) => {
             const isActive = navActive(item.id);
             const hasMega = item.mega === "optique";
@@ -296,11 +281,11 @@ export function SiteHeader({ active }: Props) {
           className="max-h-[min(80vh,720px)] overflow-y-auto border-t border-surface-variant/30 bg-white lg:hidden"
           aria-label="Mobile"
         >
-          <div className="px-margin-desktop py-3">
+          <div className="px-margin-mobile py-3">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant">
               Optique
             </p>
-            <ul className="mb-4 flex flex-col gap-0.5">
+            <ul className="mb-2 flex flex-col gap-0.5">
               {primaireNav.map((item) => (
                 <li key={item.id}>
                   <Link
@@ -326,7 +311,8 @@ export function SiteHeader({ active }: Props) {
           aria-modal
           aria-label="Recherche"
         >
-          <div className="mx-auto mt-16 max-w-xl rounded-2xl bg-white p-4 shadow-2xl">
+          <div className="mx-auto mt-16 max-w-xl px-margin-mobile md:px-0">
+            <div className="rounded-2xl bg-white p-4 shadow-2xl">
             <div className="flex items-center gap-2 border-b border-surface-variant/40 pb-3">
               <span className="material-symbols-outlined text-primary">
                 search
@@ -341,10 +327,10 @@ export function SiteHeader({ active }: Props) {
               <button
                 type="button"
                 onClick={() => setSearchOpen(false)}
-                className="material-symbols-outlined text-on-surface-variant"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low"
                 aria-label="Fermer"
               >
-                close
+                <span className="material-symbols-outlined">close</span>
               </button>
             </div>
             <ul className="mt-3 max-h-80 overflow-auto">
@@ -384,10 +370,11 @@ export function SiteHeader({ active }: Props) {
                   : "/catalogue"
               }
               onClick={() => setSearchOpen(false)}
-              className="mt-2 block rounded-xl px-2 py-2 text-center text-[13px] font-semibold text-primary hover:bg-surface-container-low"
+              className="mt-2 block rounded-xl px-2 py-2.5 text-center text-[13px] font-semibold text-primary hover:bg-surface-container-low"
             >
               Voir toute la collection
             </Link>
+            </div>
           </div>
         </div>
       ) : null}

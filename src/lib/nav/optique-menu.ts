@@ -48,8 +48,6 @@ export const optiqueAussi: MegaLink[] = [
   { label: "Lunettes de soleil", href: "/catalogue?category=soleil" },
   { label: "Lunettes de vue", href: "/catalogue?category=vue" },
   { label: "Verres progressifs", href: "/catalogue?category=progressif" },
-  { label: "Configuration des verres", href: "/configuration-verres" },
-  { label: "Essayage virtuel", href: "/produit" },
   { label: "Guide des formes", href: "/catalogue" },
 ];
 
@@ -73,33 +71,21 @@ export const primaireNav = [
     mega: "optique" as const,
   },
   {
-    id: "essayage",
-    label: "Essayage virtuel",
-    href: "/produit",
-    mega: null,
-  },
-  {
-    id: "expertise",
-    label: "Expertise",
-    href: "/configuration-verres",
-    mega: null,
-  },
-  {
-    id: "offres",
-    label: "Offres",
-    href: "/catalogue?sort=nouveautes",
-    mega: null,
-  },
-  {
-    id: "services",
-    label: "Services",
-    href: "/magasins",
-    mega: null,
-  },
-  {
     id: "magasins",
     label: "Magasins",
     href: "/magasins",
+    mega: null,
+  },
+  {
+    id: "qui-sommes-nous",
+    label: "Qui sommes-nous",
+    href: "/qui-sommes-nous",
+    mega: null,
+  },
+  {
+    id: "contact",
+    label: "Contactez-nous",
+    href: "/contact",
     mega: null,
   },
 ] as const;

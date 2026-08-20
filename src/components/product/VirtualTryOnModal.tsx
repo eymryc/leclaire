@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FaceLandmarker, FilesetResolver } from "@mediapipe/tasks-vision";
 import type { Product, ProductColor } from "@/lib/catalog/products";
 import { loadCutout } from "@/lib/vto/cutout";
 import { silenceMediapipeLogs } from "@/lib/vto/silenceLogs";
+import { createVtoEngine, type VtoEngine } from "@/lib/vto/createVtoEngine";
 
 type Props = {
   product: Product;
@@ -13,7 +15,7 @@ type Props = {
   onClose: () => void;
 };
 
-type Pose = { x: number; y: number; angle: number; width: number; height: number };
+type Pose2d = { x: number; y: number; angle: number; width: number; height: number };
 
 const WASM =
   "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21/wasm";
@@ -25,7 +27,7 @@ const R_EYE = 263;
 const L_INNER = 133;
 const R_INNER = 362;
 
-function smooth(prev: Pose | null, next: Pose, a = 0.28): Pose {
+function smooth2d(prev: Pose2d | null, next: Pose2d, a = 0.28): Pose2d {
   if (!prev) return next;
   return {
     x: prev.x + (next.x - prev.x) * a,
@@ -38,11 +40,13 @@ function smooth(prev: Pose | null, next: Pose, a = 0.28): Pose {
 
 export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvas2dRef = useRef<HTMLCanvasElement>(null);
+  const canvas3dRef = useRef<HTMLCanvasElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const landmarkerRef = useRef<FaceLandmarker | null>(null);
   const glassesRef = useRef<HTMLCanvasElement | null>(null);
-  const poseRef = useRef<Pose | null>(null);
+  const poseRef = useRef<Pose2d | null>(null);
+  const engineRef = useRef<VtoEngine | null>(null);
   const rafRef = useRef(0);
   const lastVideoTimeRef = useRef(-1);
   const stampRef = useRef(0);
@@ -51,6 +55,7 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
   const [status, setStatus] = useState<"loading" | "ready" | "noface" | "denied" | "error">(
     "loading"
   );
+  const [mode, setMode] = useState<"3d" | "2d">("2d");
   const [loadHint, setLoadHint] = useState("Préparation de l’essayage…");
   statusRef.current = status;
   const filterRef = useRef(imageFilter);
@@ -62,10 +67,6 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
 
     async function boot() {
       try {
-        setLoadHint("Chargement de la monture…");
-        glassesRef.current = await loadCutout(product.image);
-        if (cancelled) return;
-
         setLoadHint("Activation de la caméra…");
         if (!navigator.mediaDevices?.getUserMedia) {
           setStatus("error");
@@ -95,8 +96,42 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
           if (video.readyState >= 2 && video.videoWidth > 0) resolve();
           else video.onloadeddata = () => resolve();
         });
-        // Give the first frame a moment so MediaPipe never sees 0×0
-        await new Promise((r) => setTimeout(r, 120));
+        await new Promise((r) => setTimeout(r, 100));
+        if (cancelled) return;
+
+        // ——— Essai moteur 3D (Meshy GLB) ———
+        const modelUrl = product.modelGlb ?? `/models/${product.slug}.glb`;
+        if (canvas3dRef.current) {
+          setLoadHint("Chargement du modèle 3D…");
+          const engine = await createVtoEngine({
+            canvas: canvas3dRef.current,
+            video,
+            modelUrl,
+            occluderUrl: product.occluderGlb ?? "/models/face-occluder.glb",
+            sizeFactor: 1.08,
+          });
+          if (cancelled) {
+            engine.stop();
+            return;
+          }
+          if (engine.hasModel) {
+            engineRef.current = engine;
+            setMode("3d");
+            setLoadHint("Initialisation du suivi facial…");
+            await engine.start();
+            if (cancelled) {
+              engine.stop();
+              return;
+            }
+            setStatus("ready");
+            return;
+          }
+        }
+
+        // ——— Fallback 2D (pas de GLB) ———
+        setMode("2d");
+        setLoadHint("Monture 2D (ajoutez le .glb pour le 3D)…");
+        glassesRef.current = await loadCutout(product.image);
         if (cancelled) return;
 
         setLoadHint("Initialisation du suivi facial…");
@@ -107,9 +142,6 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
             baseOptions: { modelAssetPath: MODEL, delegate: "GPU" },
             runningMode: "VIDEO",
             numFaces: 1,
-            minFaceDetectionConfidence: 0.5,
-            minFacePresenceConfidence: 0.5,
-            minTrackingConfidence: 0.5,
           });
         } catch {
           landmarker = await FaceLandmarker.createFromOptions(vision, {
@@ -124,7 +156,7 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
         }
         landmarkerRef.current = landmarker;
         setStatus("ready");
-        loop();
+        loop2d();
       } catch (e) {
         const name = e instanceof DOMException ? e.name : "";
         setStatus(
@@ -133,16 +165,16 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
       }
     }
 
-    function loop() {
+    function loop2d() {
       const video = videoRef.current;
-      const canvas = canvasRef.current;
+      const canvas = canvas2dRef.current;
       const landmarker = landmarkerRef.current;
       if (!video || !canvas || !landmarker || cancelled) return;
 
       const vw = video.videoWidth;
       const vh = video.videoHeight;
       if (!vw || !vh) {
-        rafRef.current = requestAnimationFrame(loop);
+        rafRef.current = requestAnimationFrame(loop2d);
         return;
       }
       if (canvas.width !== vw || canvas.height !== vh) {
@@ -158,13 +190,13 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
         try {
           result = landmarker.detectForVideo(video, stampRef.current);
         } catch {
-          rafRef.current = requestAnimationFrame(loop);
+          rafRef.current = requestAnimationFrame(loop2d);
           return;
         }
 
         const ctx = canvas.getContext("2d", { alpha: true });
         if (!ctx) {
-          rafRef.current = requestAnimationFrame(loop);
+          rafRef.current = requestAnimationFrame(loop2d);
           return;
         }
 
@@ -173,13 +205,11 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
 
         if (faces?.length) {
           if (statusRef.current === "noface") setStatus("ready");
-
           const lm = faces[0];
           const left = lm[L_EYE];
           const right = lm[R_EYE];
           const li = lm[L_INNER];
           const ri = lm[R_INNER];
-          // Cheek / temple area — closer to real frame width than eye corners alone
           const cheekL = lm[234] ?? left;
           const cheekR = lm[454] ?? right;
 
@@ -192,15 +222,14 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
             (cheekR.y - cheekL.y) * canvas.height
           );
 
-          const raw: Pose = {
+          const raw: Pose2d = {
             x: midX,
             y: midY + faceW * 0.02,
             angle: Math.atan2(dyEyes, dxEyes),
-            // Frame should span most of the face width (toward ears)
             width: faceW * 0.92,
             height: faceW * 0.38,
           };
-          poseRef.current = smooth(poseRef.current, raw);
+          poseRef.current = smooth2d(poseRef.current, raw);
           const pose = poseRef.current;
           const glasses = glassesRef.current;
 
@@ -208,18 +237,12 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
             const aspect = glasses.height / glasses.width;
             const gw = pose.width;
             const gh = gw * aspect;
-
             ctx.save();
             ctx.translate(pose.x, pose.y);
             ctx.rotate(pose.angle);
-
-            // Soft contact shadow
-            ctx.save();
-            ctx.globalAlpha = 0.22;
+            ctx.globalAlpha = 0.2;
             ctx.filter = "blur(6px)";
             ctx.drawImage(glasses, -gw / 2, -gh * 0.28 + 4, gw, gh);
-            ctx.restore();
-
             ctx.globalAlpha = 1;
             ctx.filter =
               filterRef.current && filterRef.current !== "none"
@@ -228,7 +251,6 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
             ctx.drawImage(glasses, -gw / 2, -gh * 0.32, gw, gh);
             ctx.restore();
             ctx.filter = "none";
-            ctx.globalAlpha = 1;
           }
         } else {
           poseRef.current = null;
@@ -236,7 +258,7 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
         }
       }
 
-      rafRef.current = requestAnimationFrame(loop);
+      rafRef.current = requestAnimationFrame(loop2d);
     }
 
     void boot();
@@ -244,22 +266,28 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
     return () => {
       cancelled = true;
       cancelAnimationFrame(rafRef.current);
+      engineRef.current?.stop();
+      engineRef.current = null;
       streamRef.current?.getTracks().forEach((t) => t.stop());
       streamRef.current = null;
       landmarkerRef.current?.close();
       landmarkerRef.current = null;
       restoreLogs();
     };
-  }, [product.image]);
+  }, [product.image, product.modelGlb, product.occluderGlb, product.slug]);
 
   const stopAndClose = () => {
     cancelAnimationFrame(rafRef.current);
+    engineRef.current?.stop();
+    engineRef.current = null;
     streamRef.current?.getTracks().forEach((t) => t.stop());
     streamRef.current = null;
     landmarkerRef.current?.close();
     landmarkerRef.current = null;
     onClose();
   };
+
+  const expectedFile = product.modelGlb ?? `/models/${product.slug}.glb`;
 
   return (
     <div
@@ -278,7 +306,6 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
           <span className="material-symbols-outlined">close</span>
         </button>
 
-        {/* Mirror */}
         <div className="relative h-[56%] w-full md:h-full md:w-[68%]">
           <div className="absolute inset-0 overflow-hidden" style={{ transform: "scaleX(-1)" }}>
             <video
@@ -288,10 +315,16 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
               autoPlay
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <canvas ref={canvasRef} className="absolute inset-0 h-full w-full object-cover" />
+            <canvas
+              ref={canvas2dRef}
+              className={`absolute inset-0 h-full w-full object-cover ${mode === "3d" ? "hidden" : ""}`}
+            />
+            <canvas
+              ref={canvas3dRef}
+              className={`absolute inset-0 h-full w-full object-cover ${mode === "3d" ? "" : "hidden"}`}
+            />
           </div>
 
-          {/* Vignette luxury */}
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,8,15,0.55)_100%)]" />
 
           {status === "loading" && (
@@ -305,9 +338,6 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
             <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 px-8 text-center text-white">
               <span className="material-symbols-outlined text-4xl text-[#3cd7ff]">videocam_off</span>
               <p className="text-lg font-semibold">Caméra requise</p>
-              <p className="max-w-sm text-sm text-white/60">
-                Autorisez l’accès caméra dans votre navigateur pour essayer la monture.
-              </p>
             </div>
           )}
 
@@ -315,7 +345,6 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
             <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 px-8 text-center text-white">
               <span className="material-symbols-outlined text-4xl">error</span>
               <p className="text-lg font-semibold">Essayage indisponible</p>
-              <p className="text-sm text-white/60">Réessayez avec Chrome ou Safari à jour.</p>
             </div>
           )}
 
@@ -330,31 +359,41 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
           {status === "ready" && (
             <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90 backdrop-blur-md">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#3cd7ff]" />
-              Suivi actif
+              {mode === "3d" ? "3D actif" : "Aperçu 2D"}
             </div>
           )}
         </div>
 
-        {/* Side panel */}
         <aside className="flex h-[44%] w-full flex-col border-t border-white/10 bg-[#0b1522] px-6 py-6 text-white md:h-full md:w-[32%] md:border-l md:border-t-0 md:px-8 md:py-10">
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#3cd7ff]">
             Essayage en direct
           </p>
-          <h3 id="vto-title" className="mt-3 font-[family-name:var(--font-sora)] text-2xl font-semibold tracking-tight">
+          <h3
+            id="vto-title"
+            className="mt-3 font-[family-name:var(--font-sora)] text-2xl font-semibold tracking-tight"
+          >
             {product.name}
           </h3>
           <p className="mt-1 text-[14px] text-white/55">
             {color?.label ?? product.materialLabel}
           </p>
 
-          <div className="mt-8 space-y-4 text-[13px] leading-relaxed text-white/65">
-            <p>
-              Aperçu caméra. Pour un rendu boutique (branches derrière les oreilles, matière,
-              lumière), chaque monture doit être un modèle 3D — pas une photo catalogue.
-            </p>
-            <p className="text-[12px] text-white/40">
-              Image locale — aucun enregistrement. Ajustement optique définitif en magasin.
-            </p>
+          <div className="mt-8 space-y-3 text-[13px] leading-relaxed text-white/65">
+            {mode === "3d" ? (
+              <p>
+                Modèle 3D chargé. Tournez légèrement la tête — les branches suivent le visage.
+              </p>
+            ) : (
+              <>
+                <p>Pas encore de fichier 3D pour cette monture.</p>
+                <p className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 font-mono text-[11px] text-[#3cd7ff]">
+                  {expectedFile}
+                </p>
+                <p className="text-[12px] text-white/40">
+                  Générez le GLB sur Meshy, déposez-le ici, rechargez la page.
+                </p>
+              </>
+            )}
           </div>
 
           <div className="mt-auto flex flex-col gap-3 pt-8">
@@ -365,12 +404,12 @@ export function VirtualTryOnModal({ product, color, imageFilter, onClose }: Prop
             >
               Continuer mes achats
             </button>
-            <a
+            <Link
               href="/magasins"
               className="flex h-11 w-full items-center justify-center rounded-full border border-white/15 text-[12px] font-medium text-white/70 transition hover:border-white/30 hover:text-white"
             >
               Prendre RDV en magasin
-            </a>
+            </Link>
           </div>
         </aside>
       </div>

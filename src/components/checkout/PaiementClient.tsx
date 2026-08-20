@@ -18,7 +18,7 @@ export function PaiementClient() {
 
   if (count === 0) {
     return (
-      <div className="mx-auto max-w-container-max px-margin-desktop py-20 text-center">
+      <div className="mx-auto max-w-container-max px-margin-mobile py-12 md:px-margin-desktop md:py-20 text-center">
         <h1 className="text-2xl font-semibold text-primary">Aucun article à payer</h1>
         <button type="button" onClick={() => router.push("/catalogue")} className="mt-4 text-secondary underline">
           Retour collection
@@ -39,7 +39,7 @@ export function PaiementClient() {
   };
 
   return (
-    <div className="mx-auto max-w-container-max px-margin-desktop py-10">
+    <div className="mx-auto max-w-container-max px-margin-mobile py-8 md:px-margin-desktop md:py-10">
       <h1 className="text-3xl font-semibold text-primary">Paiement</h1>
       <p className="mt-2 text-on-surface-variant">Sécurisé · Total {formatPrice(total)}</p>
 

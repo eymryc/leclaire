@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   formatPrice,
@@ -13,6 +13,7 @@ import {
   type Product,
 } from "@/lib/catalog/products";
 import { useWishlist } from "@/lib/store/AppDataContext";
+import { ProductCardActions } from "@/components/product/ProductCardActions";
 
 type SortKey = "pertinence" | "prix-asc" | "prix-desc" | "nouveautes";
 
@@ -74,42 +75,58 @@ export function CatalogueClient() {
   const params = useSearchParams();
   const { toggle, has } = useWishlist();
 
-  const initialFace = parseFace(params.get("face"));
-  const initialMaterial = parseMaterial(params.get("material"));
-  const initialCategory = parseCategory(params.get("category"));
-  const initialGenre = parseGenre(params.get("genre"));
-  const initialSort =
+  const urlFace = parseFace(params.get("face"));
+  const urlMaterial = parseMaterial(params.get("material"));
+  const urlCategory = parseCategory(params.get("category"));
+  const urlGenre = parseGenre(params.get("genre"));
+  const urlSort =
     params.get("sort") === "nouveautes" ? "nouveautes" : "pertinence";
-  const initialQ = params.get("q")?.trim() ?? "";
-  const genre = initialGenre;
+  const urlQ = params.get("q")?.trim() ?? "";
 
-  const [face, setFace] = useState<FaceShape | null>(initialFace);
+  const [face, setFace] = useState<FaceShape | null>(urlFace);
   const [materials, setMaterials] = useState<Material[]>(
-    initialMaterial ? [initialMaterial] : []
+    urlMaterial ? [urlMaterial] : []
   );
-  const [category, setCategory] = useState<Category | null>(initialCategory);
+  const [category, setCategory] = useState<Category | null>(urlCategory);
+  const [genre, setGenre] = useState<Genre | null>(urlGenre);
   const [budget, setBudget] = useState<string | null>(null);
   const [colorHex, setColorHex] = useState<string | null>(null);
-  const [sort, setSort] = useState<SortKey>(initialSort as SortKey);
+  const [sort, setSort] = useState<SortKey>(urlSort as SortKey);
   const [view, setView] = useState<"grid" | "list">("grid");
+  const [filtersOpen, setFiltersOpen] = useState(false);
+
+  // Resynchroniser quand l’URL change (ex. soleil → soleil + homme)
+  useEffect(() => {
+    setFace(urlFace);
+    setMaterials(urlMaterial ? [urlMaterial] : []);
+    setCategory(urlCategory);
+    setGenre(urlGenre);
+    setSort(urlSort as SortKey);
+  }, [urlFace, urlMaterial, urlCategory, urlGenre, urlSort]);
 
   const title =
     category === "soleil"
-      ? "Lunettes de soleil"
+      ? genre
+        ? `Soleil · ${genre.charAt(0).toUpperCase()}${genre.slice(1)}`
+        : "Lunettes de soleil"
       : category === "progressif"
         ? "Verres progressifs"
-        : genre === "femme"
-          ? "Collection Femme"
-          : genre === "homme"
-            ? "Collection Homme"
-            : genre === "enfant"
-              ? "Collection Enfant"
-              : "Lunettes de vue";
+        : category === "vue"
+          ? genre
+            ? `Vue · ${genre.charAt(0).toUpperCase()}${genre.slice(1)}`
+            : "Lunettes de vue"
+          : genre === "femme"
+            ? "Collection Femme"
+            : genre === "homme"
+              ? "Collection Homme"
+              : genre === "enfant"
+                ? "Collection Enfant"
+                : "Collection";
 
   const filtered = useMemo(() => {
     let list = [...products];
-    if (initialQ) {
-      const needle = initialQ.toLowerCase();
+    if (urlQ) {
+      const needle = urlQ.toLowerCase();
       list = list.filter(
         (p) =>
           p.name.toLowerCase().includes(needle) ||
@@ -137,7 +154,7 @@ export function CatalogueClient() {
       list.sort((a, b) => Number(!!b.badge) - Number(!!a.badge));
 
     return list;
-  }, [face, materials, budget, colorHex, sort, category, genre, initialQ]);
+  }, [face, materials, budget, colorHex, sort, category, genre, urlQ]);
 
   const reset = () => {
     setFace(null);
@@ -145,6 +162,7 @@ export function CatalogueClient() {
     setBudget(null);
     setColorHex(null);
     setCategory(null);
+    setGenre(null);
   };
 
   const toggleMaterial = (m: Material) => {
@@ -156,24 +174,33 @@ export function CatalogueClient() {
   return (
     <div className="flex flex-col w-full">
       <div className="w-full border-b border-surface-variant/40 bg-white/80">
-        <div className="mx-auto max-w-container-max px-margin-desktop flex flex-col gap-6 py-8 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mx-auto flex max-w-container-max flex-col gap-6 px-margin-mobile py-8 md:px-margin-desktop lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-3">
             <nav className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">
               <Link href="/" className="hover:text-secondary">Accueil</Link>
               <span className="material-symbols-outlined text-[14px]">chevron_right</span>
               <span className="text-primary">Collection</span>
             </nav>
-            <h1 className="font-display-lg text-[2.25rem] md:text-[3rem] leading-tight text-primary">
+            <h1 className="font-display-lg text-[2rem] leading-tight text-primary sm:text-[2.25rem] md:text-[3rem]">
               {title}
             </h1>
-            <p className="text-[16px] text-on-surface-variant">
+            <p className="text-[15px] text-on-surface-variant sm:text-[16px]">
               Filtrez, comparez et essayez en ligne. {filtered.length} monture
               {filtered.length > 1 ? "s" : ""} disponible
               {filtered.length > 1 ? "s" : ""}.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <label className="flex items-center gap-2 rounded-full border border-surface-variant bg-white px-4 py-2.5 text-[12px] font-semibold uppercase tracking-[0.06em] shadow-sm">
+            <button
+              type="button"
+              onClick={() => setFiltersOpen((v) => !v)}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-surface-variant bg-white px-4 py-2.5 text-[12px] font-semibold uppercase tracking-[0.06em] shadow-sm lg:hidden"
+              aria-expanded={filtersOpen}
+            >
+              <span className="material-symbols-outlined text-[18px]">tune</span>
+              Filtres
+            </button>
+            <label className="flex min-h-11 items-center gap-2 rounded-full border border-surface-variant bg-white px-4 py-2.5 text-[12px] font-semibold uppercase tracking-[0.06em] shadow-sm">
               <span className="text-on-surface-variant">Trier</span>
               <select
                 className="bg-transparent text-primary outline-none"
@@ -186,7 +213,7 @@ export function CatalogueClient() {
                 <option value="nouveautes">Nouveautés</option>
               </select>
             </label>
-            <div className="flex rounded-full border border-surface-variant bg-white p-1 shadow-sm">
+            <div className="flex min-h-11 rounded-full border border-surface-variant bg-white p-1 shadow-sm">
               <button
                 type="button"
                 onClick={() => setView("grid")}
@@ -206,8 +233,12 @@ export function CatalogueClient() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-container-max grid-cols-1 gap-8 px-margin-desktop py-8 lg:grid-cols-12">
-        <aside className="space-y-6 rounded-2xl border border-surface-variant/50 bg-white p-5 shadow-sm lg:col-span-3 lg:sticky lg:top-32 lg:self-start">
+      <div className="mx-auto grid max-w-container-max grid-cols-1 gap-8 px-margin-mobile py-8 md:px-margin-desktop lg:grid-cols-12">
+        <aside
+          className={`space-y-6 rounded-2xl border border-surface-variant/50 bg-white p-5 shadow-sm lg:col-span-3 lg:sticky lg:top-32 lg:self-start ${
+            filtersOpen ? "block" : "hidden lg:block"
+          }`}
+        >
           <div className="flex items-center justify-between">
             <h2 className="text-[18px] font-semibold text-primary">Filtres</h2>
             <button type="button" onClick={reset} className="text-[11px] font-semibold uppercase tracking-[0.08em] text-secondary">
@@ -287,12 +318,19 @@ export function CatalogueClient() {
                   type="button"
                   aria-label={hex}
                   onClick={() => setColorHex((c) => (c === hex ? null : hex))}
-                  className={`h-8 w-8 rounded-full shadow-sm ${colorHex === hex ? "ring-2 ring-secondary ring-offset-2" : ""}`}
+                  className={`inline-flex h-11 w-11 items-center justify-center rounded-full shadow-sm ${colorHex === hex ? "ring-2 ring-secondary ring-offset-2" : ""}`}
                   style={{ backgroundColor: hex }}
                 />
               ))}
             </div>
           </div>
+          <button
+            type="button"
+            onClick={() => setFiltersOpen(false)}
+            className="flex min-h-11 w-full items-center justify-center rounded-full bg-primary text-[12px] font-semibold uppercase tracking-wider text-white lg:hidden"
+          >
+            Voir les résultats
+          </button>
         </aside>
 
         <div className="lg:col-span-9 space-y-6">
@@ -356,28 +394,33 @@ export function CatalogueClient() {
                     />
                   </div>
                   <div className="flex flex-1 flex-col gap-3 p-5">
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <Link href={`/produit/${p.slug}`} className="text-[18px] font-semibold text-primary hover:text-secondary">
+                    <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
+                      <div className="min-w-0">
+                        <Link href={`/produit/${p.slug}`} className="text-[17px] font-semibold text-primary hover:text-secondary sm:text-[18px]">
                           {p.name}
                         </Link>
                         <p className="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-on-surface-variant">
                           {p.materialLabel}
                         </p>
                       </div>
-                      <p className="text-[17px] font-bold text-primary whitespace-nowrap">
+                      <p className="shrink-0 text-[16px] font-bold text-primary sm:text-right sm:text-[17px]">
                         {formatPrice(p.price)}
                       </p>
                     </div>
-                    <div className="mt-auto flex items-center justify-between">
-                      <div className="flex gap-1.5">
-                        {p.colors.map((c) => (
-                          <span key={c.id} className="h-3.5 w-3.5 rounded-full border border-black/10" style={{ backgroundColor: c.hex }} title={c.label} />
-                        ))}
+                    <div className="mt-auto flex flex-col gap-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex gap-1.5">
+                          {p.colors.map((c) => (
+                            <span
+                              key={c.id}
+                              className="h-3.5 w-3.5 rounded-full border border-black/10"
+                              style={{ backgroundColor: c.hex }}
+                              title={c.label}
+                            />
+                          ))}
+                        </div>
                       </div>
-                      <Link href={`/produit/${p.slug}`} className="text-[12px] font-semibold text-secondary hover:text-primary">
-                        Voir →
-                      </Link>
+                      <ProductCardActions slug={p.slug} name={p.name} />
                     </div>
                   </div>
                 </article>

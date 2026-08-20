@@ -8,13 +8,14 @@ const assurance = [
   { href: "#", label: "Charte qualité vision" },
   { href: "#", label: "Guide d'ordonnance" },
   { href: "#", label: "Santé lumière bleue" },
-  { href: "/configuration-verres", label: "Opticiens partenaires" },
+  { href: "/magasins", label: "Opticiens partenaires" },
 ];
 
 const service = [
   { href: "/magasins", label: "Nos magasins" },
+  { href: "/qui-sommes-nous", label: "Qui sommes-nous" },
+  { href: "/contact", label: "Contactez-nous" },
   { href: "/mon-espace", label: "Suivi de commande" },
-  { href: "/paiement", label: "Tiers payant / mutuelle" },
   { href: "/magasins", label: "Prendre rendez-vous" },
 ];
 
@@ -23,7 +24,7 @@ export function SiteFooter() {
 
   return (
     <footer className="w-full bg-primary text-white">
-      <div className="mx-auto max-w-container-max px-margin-desktop pt-14 pb-10 md:pt-16 md:pb-12">
+      <div className="mx-auto max-w-container-max px-margin-mobile pt-12 pb-10 md:px-margin-desktop md:pt-16 md:pb-12">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-4 space-y-5">
@@ -110,13 +111,17 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center">
-          <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-white/45">
-            © {year} {BRAND.name} — {BRAND.intro}
+          <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-white/45 text-balance">
+            © {year} {BRAND.name}
+            <span className="hidden md:inline"> — {BRAND.intro}</span>
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-[12px] font-medium uppercase tracking-[0.08em] text-white/45">
-            <a className="transition-colors hover:text-white" href={BRAND.emailHref}>
+            <Link className="transition-colors hover:text-white" href="/contact">
               Contact
-            </a>
+            </Link>
+            <Link className="transition-colors hover:text-white" href="/qui-sommes-nous">
+              Qui sommes-nous
+            </Link>
             <a className="transition-colors hover:text-white" href="#">
               Confidentialité
             </a>

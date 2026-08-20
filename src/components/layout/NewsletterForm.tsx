@@ -32,7 +32,7 @@ export function NewsletterForm() {
 
   return (
     <form
-      className="flex overflow-hidden rounded-full border border-white/20 bg-white/5 focus-within:border-secondary-container"
+      className="flex items-stretch overflow-hidden rounded-full border border-white/20 bg-white/5 focus-within:border-secondary-container"
       onSubmit={submit}
     >
       <label className="sr-only" htmlFor="footer-email">
@@ -40,7 +40,7 @@ export function NewsletterForm() {
       </label>
       <input
         id="footer-email"
-        className="min-w-0 flex-1 bg-transparent px-5 py-3 text-[14px] text-white outline-none placeholder:text-white/40"
+        className="min-h-11 min-w-0 flex-1 bg-transparent px-5 py-3 text-[14px] text-white outline-none placeholder:text-white/40"
         placeholder="votre@email.com"
         type="email"
         autoComplete="email"
@@ -50,7 +50,7 @@ export function NewsletterForm() {
       />
       <button
         type="submit"
-        className="inline-flex items-center gap-1 bg-white px-5 text-[12px] font-semibold uppercase tracking-wider text-primary transition-colors hover:bg-secondary-fixed"
+        className="inline-flex min-h-11 items-center gap-1 bg-white px-5 text-[12px] font-semibold uppercase tracking-wider text-primary transition-colors hover:bg-secondary-fixed"
         aria-label="S'inscrire à la newsletter"
       >
         OK

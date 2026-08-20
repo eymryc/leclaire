@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 
-type NavActive = "collection" | "virtual-try-on" | "expertise" | "magasins";
+type NavActive = "collection" | "virtual-try-on" | "magasins";
 
 export function PageShell({
   children,

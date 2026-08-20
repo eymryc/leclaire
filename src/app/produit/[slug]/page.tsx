@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/layout/PageShell";
 import { ProductClient } from "@/components/product/ProductClient";
@@ -44,7 +45,15 @@ export default async function ProduitSlugPage({ params }: Props) {
           productJsonLd(product),
         ]}
       />
-      <ProductClient product={product} />
+      <Suspense
+        fallback={
+          <div className="flex min-h-[50vh] items-center justify-center text-on-surface-variant">
+            Chargement…
+          </div>
+        }
+      >
+        <ProductClient product={product} />
+      </Suspense>
     </PageShell>
   );
 }

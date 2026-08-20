@@ -13,7 +13,7 @@ export const metadata: Metadata = createPageMetadata({
 export default function NotFound() {
   return (
     <PageShell>
-      <div className="mx-auto flex max-w-container-max flex-col items-start gap-6 px-margin-desktop py-24">
+      <div className="mx-auto flex max-w-container-max flex-col items-start gap-6 px-margin-mobile py-16 md:px-margin-desktop md:py-24">
         <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant">
           Erreur 404
         </p>
